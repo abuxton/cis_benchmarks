@@ -3,8 +3,6 @@
 #
 class mtn_cis(
   String $cis_version = lookup('mtn_cis::version', String,'first','v1_1_1')
-  
-
-  ) inherits cis_mtn::params{
+  ) inherits ::mtn_cis::params{
 
   }
