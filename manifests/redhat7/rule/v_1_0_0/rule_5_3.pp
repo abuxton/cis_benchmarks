@@ -1,7 +1,7 @@
 # replaces mtn_cis::redhat7::rule::v_1_0_0::rule_5_3
 #wrong tpe of param for hash usage
 class mtn_cis::redhat7::rule::v_1_0_0::rule_5_3 (
-  $logs = lookup('cis_profile::logs', Array, 'first',$cis_profile::params::logs ),
+  $logs = lookup('mtn_cis::logs', Array, 'first',$mtn_cis::params::logs ),
 ) {
   # includes Rules:
   # 5.3 - Configure logrotate (Not Scored)

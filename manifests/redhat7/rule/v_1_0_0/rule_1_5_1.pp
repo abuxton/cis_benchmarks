@@ -4,7 +4,7 @@
 class mtn_cis::redhat7::rule::v_1_0_0::rule_1_5_1{
   $file = '/boot/grub2/grub.cfg'
   $sourcefile = '/etc/grub.d/40_custom'
-  $grubpwd = lookup('cis_profile::grubpwd', String, 'first', $cis_profile::params::grubpwd)
+  $grubpwd = lookup('mtn_cis::grubpwd', String, 'first', $mtn_cis::params::grubpwd)
     file { "(1.5.1 - 1.5.2) - ${file} ownership":
     ensure => file,
     path   => $file,

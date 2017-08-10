@@ -3,7 +3,7 @@
 # benchmark_8_1_banner defaults to false as banners are managed in other modules
 class mtn_cis::redhat7::rule::v_1_0_0::rule_8_1  (
 
-  $banners = lookup(cis_profile::banners, Array, 'first',$cis_profile::params::banners)
+  $banners = lookup(mtn_cis::banners, Array, 'first',$mtn_cis::params::banners)
 
 ) {
   #includes Rules:

@@ -3,8 +3,8 @@
 # rsyslogcontent still looks at mtn_cis key as no issue with data
 class mtn_cis::redhat7::rule::v_1_0_0::rule_5_1_1 (
 
-  $remotelogserver = lookup('cis_profile::remotelogserver', String, 'first', $cis_profile::params::remotelogserver),
-  $rsyslogcontent = lookup('cis_profile::rsyslogcontent', Hash, 'first', $cis_profile::params::rsyslogcontent),
+  $remotelogserver = lookup('mtn_cis::remotelogserver', String, 'first', $mtn_cis::params::remotelogserver),
+  $rsyslogcontent = lookup('mtn_cis::rsyslogcontent', Hash, 'first', $mtn_cis::params::rsyslogcontent),
 
 ) {
 
