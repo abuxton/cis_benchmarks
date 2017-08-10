@@ -1,0 +1,33 @@
+{
+  "name": "mtnc-mtn_cis",
+  "version": "0.1.0",
+  "author": "mtnc",
+  "summary": "MTNC module to impliment CIS benchmark",
+  "license": "Apache-2.0",
+  "source": "http://git.mtncameroon.net/puppet/mtn-cis",
+  "project_page": "http://git.mtncameroon.net/puppet/mtn-cis",
+  "issues_url": "",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ]
+}
