@@ -1,4 +1,4 @@
-# == Class cis_profile::params
+# == Class mtn_cis::params
 #
 # This class is meant to be called from mtn_cis.
 # It sets variables according to platform.
@@ -10,6 +10,7 @@ $osrelease = "${mtn_cis::params::osfamily}$facts[os][release][major]"
   if $osrelease != 'redhat7' {
           $benchmark = true #
           $benchmark_default = true
+          $exec_control = {}
           $cis_scripts =[
                           'cis_ww_files.sh',
                           'cis_ww_dirs.sh',
@@ -84,8 +85,6 @@ $osrelease = "${mtn_cis::params::osfamily}$facts[os][release][major]"
           '/etc/issue',
           '/etc/issue.net',
           ]
-        }
-
   }
   else {
     $benchmark = false
