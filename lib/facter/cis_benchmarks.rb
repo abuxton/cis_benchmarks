@@ -37,6 +37,9 @@ Facter.add('cis_benchmarks') do
 
 			# Rule 1.1.17
 			if ww_dirs
+				cis_benchmarks['ww_files'] = ww_files
+			end
+			if ww_dirs
 				cis_benchmarks['ww_dirs'] = ww_dirs
 			end
 
@@ -170,8 +173,8 @@ Facter.add('cis_benchmarks') do
 			if forward
 				cis_benchmarks['forward'] = forward
 			end
-			if File.exist?('/etc/.mtn_cis_pkg_integrity')
-				cis_benchmarks['pck_integrity'] = Facter::Core::Execution.exec('cat /etc/.mtn_cis_pkg_integrity')
+			if File.exist?('/etc/.cis_benchmarks_pkg_integrity')
+				cis_benchmarks['pck_integrity'] = Facter::Core::Execution.exec('cat /etc/.cis_benchmarks_pkg_integrity')
 			end
 		cis_benchmarks
 	end

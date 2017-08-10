@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_7_5 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_7_5 {
   #includes Rules:
   # 7.5 - Lock Inactive User Accounts (Scored)
 

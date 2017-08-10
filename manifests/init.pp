@@ -1,17 +1,18 @@
-# class mtn_cis
+# class cis_benchmarks
 #cis implimentation
 #
-class mtn_cis(
-  String $cis_version = lookup('mtn_cis::version', String,'first','v_2_1_1'),
-  Boolean $benchmark  = lookup('mtn_cis::benchmark', Boolean, 'first', $mtn_cis::params::benchmark),
-  Hash $exec_control  = lookup('mtn_cis::exec_control', Hash, 'first', $mtn_cis::params::exec_control),
-  ) inherits ::mtn_cis::params {
+class cis_benchmarks(
+  String $cis_version = lookup('cis_benchmarks::version', String,'first','v_2_1_1'),
+  Boolean $benchmark  = lookup('cis_benchmarks::benchmark', Boolean, 'first', $cis_benchmarks::params::benchmark),
+  Hash $exec_controls = lookup('cis_benchmarks::exec_control', Hash, 'first', $cis_benchmarks::params::exec_control),
+  ) inherits ::cis_benchmarks::params {
+$osrelease = $cis_benchmarks::params::osrelease
 
-include ::mtn_cis::prereq
-$exec_control.each |$rule, $ishouldexecute| {
+require ::cis_benchmarks::prereq
+
+$exec_controls.each |$rule, $ishouldexecute| {
   if $ishouldexecute {
-    class{ "::mtn_cis::$osrelease::rule::${cis_version}::${rule}":
-      require => Class['::mtn_cis::prereq'],
+    class{ "::cis_benchmarks::${osrelease}::rule::${cis_version}::${rule}":
       }
     }
   }

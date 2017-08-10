@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_5_2_1_1 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_2_1_1 {
 
   # includes Rules:
   # 5.2.1.1 - Configure Audit Log Storage Size (Not Scored)

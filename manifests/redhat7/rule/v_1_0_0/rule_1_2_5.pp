@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_2_5 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_5 {
   # includes Rules:
   # 1.2.5 - Obtain Software Package Updates with yum (Not Scored)
 

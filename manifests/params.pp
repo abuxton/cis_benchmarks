@@ -1,16 +1,18 @@
-# == Class mtn_cis::params
+# == Class cis_benchmarks::params
 #
-# This class is meant to be called from mtn_cis.
+# This class is meant to be called from cis_benchmarks.
 # It sets variables according to platform.
 #
-class mtn_cis::params{
+class cis_benchmarks::params{
 # to support folder structure
 $osfamily = downcase($facts['os']['family'])
-$osrelease = "${mtn_cis::params::osfamily}$facts[os][release][major]"
-  if $osrelease != 'redhat7' {
+$osreleasemajor = $facts['os']['release']['major']
+$osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
+
+  if $osrelease == 'redhat7' {
           $benchmark = true #
           $benchmark_default = true
-          $exec_control = {}
+          $exec_controls = {}
           $cis_scripts =[
                           'cis_ww_files.sh',
                           'cis_ww_dirs.sh',

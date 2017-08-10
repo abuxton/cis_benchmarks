@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_6_3_4 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_3_4 {
 
   # 6.3.4 has been moved into rule_6_3_2.pp file
 

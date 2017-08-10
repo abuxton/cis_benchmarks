@@ -1,9 +1,9 @@
-# replaces mtn_cis::redhat7::rule::v_1_0_0::rule_8_1
+# replaces cis_benchmarks::redhat7::rule::v_1_0_0::rule_8_1
 # wrong tpe of param for hash usage
 # benchmark_8_1_banner defaults to false as banners are managed in other modules
-class mtn_cis::redhat7::rule::v_1_0_0::rule_8_1  (
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_8_1  (
 
-  $banners = lookup(mtn_cis::banners, Array, 'first',$mtn_cis::params::banners)
+  $banners = lookup(cis_benchmarks::banners, Array, 'first',$cis_benchmarks::params::banners)
 
 ) {
   #includes Rules:
@@ -16,7 +16,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_8_1  (
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        content => epp('mtn_cis/banner.epp')
+        content => epp('cis_benchmarks/banner.epp')
     }
   }
 

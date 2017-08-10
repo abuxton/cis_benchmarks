@@ -1,7 +1,7 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_6_1_1 (
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_1_1 (
 
-  $files = lookup({'name' => 'mtn_cis::cron_files', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}}),
-  $dirs  = lookup({'name' => 'mtn_cis::cron_dirs', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
+  $files = lookup({'name' => 'cis_benchmarks::cron_files', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}}),
+  $dirs  = lookup({'name' => 'cis_benchmarks::cron_dirs', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
 
 ) {
   # includes Rules:

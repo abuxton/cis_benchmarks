@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_4_5_2 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_4_5_2 {
   # includes Rules:
   # 4.5.2 - Create /etc/hosts.allow (Not Scored)
   # 4.5.3 - Verify Permissions on /etc/hosts.allow (Scored)

@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_9_2_19 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_9_2_19 {
   # includes Rules:
   # 9.2.19 - Check for Presence of User .netrc Files (Scored)
 

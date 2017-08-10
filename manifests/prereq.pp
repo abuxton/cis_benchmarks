@@ -1,8 +1,8 @@
 
-class mtn_cis::prereq (
-  $cis_scripts_dir = lookup('mtn_cis::cis_scripts_dir', String, 'first', '/tmp/cis_scripts/'),
-  $cis_scripts     = lookup('mtn_cis::cis_scripts', Array, 'first' , $mtn_cis::params::cis_scripts),
-) inherits ::mtn_cis::params {
+class cis_benchmarks::prereq (
+  $cis_scripts_dir = lookup('cis_benchmarks::cis_scripts_dir', String, 'first', '/tmp/cis_scripts/'),
+  $cis_scripts     = lookup('cis_benchmarks::cis_scripts', Array, 'first', $::cis_benchmarks::params::cis_scripts ),
+) inherits ::cis_benchmarks::params {
 
   ### CIS BENCHMARK PREREQUISITE STEPS
 
@@ -21,7 +21,7 @@ class mtn_cis::prereq (
   each($cis_scripts) |$item| {
     file { "${cis_scripts_dir}/${item}":
       ensure => file,
-      source => "puppet:///modules/mtn_cis/${item}",
+      source => "puppet:///modules/cis_benchmarks/${item}",
       mode   => '0755',
     }
   }

@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_9_1_13 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_9_1_13 {
   # includes Rules:
   # 9.1.13 - Find SUID System Executables (Not Scored)
 

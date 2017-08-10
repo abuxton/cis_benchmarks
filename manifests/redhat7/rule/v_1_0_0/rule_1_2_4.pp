@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_2_4 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_4 {
 
   # includes Rules:
   # 1.2.4 - Disable the rhnsd Daemon (Not Scored)

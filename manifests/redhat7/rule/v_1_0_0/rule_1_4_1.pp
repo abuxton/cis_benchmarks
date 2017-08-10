@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_4_1 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_4_1 {
   # includes Rules:
   # 1.4.1 - Enable SELinux in /etc/grub.conf (Scored)
   ######E## Modified.  It is /etc/grub2.cfg now

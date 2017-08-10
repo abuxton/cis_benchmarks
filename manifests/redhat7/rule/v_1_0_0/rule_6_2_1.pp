@@ -1,6 +1,6 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_6_2_1 (
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_2_1 (
 
-  $settings = lookup({'name' => 'mtn_cis::sshd_settings', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
+  $settings = lookup({'name' => 'cis_benchmarks::sshd_settings', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
 
 ) {
   # includes Rules:

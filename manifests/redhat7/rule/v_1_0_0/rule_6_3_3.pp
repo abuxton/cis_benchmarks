@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_6_3_3 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_3_3 {
   #includes Rules:
   # 6.3.3 - Set Lockout for Failed Password Attempts (Not Scored)
 
@@ -14,7 +14,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_6_3_3 {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => epp('mtn_cis/password-auth.epp'),
+    content => epp('cis_benchmarks/password-auth.epp'),
   }
 
   #pam { '(6.3.3) - system-auth: pam_env.so (required)':

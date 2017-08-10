@@ -1,11 +1,11 @@
 require 'spec_helper_acceptance'
 
-describe 'mtn_cis class' do
+describe 'cis_benchmarks class' do
   context 'default parameters' do
     # Using puppet_apply as a helper
     it 'should work idempotently with no errors' do
       pp = <<-EOS
-      class { 'mtn_cis': }
+      class { 'cis_benchmarks': }
       EOS
 
       # Run it twice and test for idempotency
@@ -13,11 +13,11 @@ describe 'mtn_cis class' do
       apply_manifest(pp, :catch_changes  => true)
     end
 
-    describe package('mtn_cis') do
+    describe package('cis_benchmarks') do
       it { is_expected.to be_installed }
     end
 
-    describe service('mtn_cis') do
+    describe service('cis_benchmarks') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end

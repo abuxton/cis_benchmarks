@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_4_7 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_4_7 {
   # includes Rules:
   # 4.7 - Enable firewalld (Scored)
 

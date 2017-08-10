@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_6_3_2 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_3_2 {
   #includes Rules:
   # 6.3.2 - Set Password Creation Requirement Parameters Using pam_cracklib (Scored)
   # 6.3.3 - Set Lockout for Failed Password Attempts (Not Scored)
@@ -16,7 +16,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_6_3_2 {
     mode    => '0644',
     owner   => 'root',
     group   => 'root',
-    content => epp('mtn_cis/system-auth.epp'), # 6.3.3
+    content => epp('cis_benchmarks/system-auth.epp'), # 6.3.3
   }
 
   file {'(6.3.2) - /etc/security/pwquality.conf content':
@@ -25,7 +25,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_6_3_2 {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => epp('mtn_cis/pwquality.conf.epp'),
+    content => epp('cis_benchmarks/pwquality.conf.epp'),
   }
 
 

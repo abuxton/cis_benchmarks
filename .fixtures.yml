@@ -2,4 +2,4 @@ fixtures:
   repositories:
     stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
   symlinks:
-    mtn_cis: "#{source_dir}"
+    cis_benchmarks: "#{source_dir}"

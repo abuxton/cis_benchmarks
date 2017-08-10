@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_1_17 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_1_17 {
 
   #includes Rules:
   # 1.1.17 - Set Sticky Bit on All World-Writable Directories (Scored)

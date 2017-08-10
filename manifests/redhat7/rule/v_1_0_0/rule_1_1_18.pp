@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_1_18 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_1_18 {
 
   # includes Rules:
   # 1.1.18 - Disable Mounting of cramfs Filesystems (Not Scored)

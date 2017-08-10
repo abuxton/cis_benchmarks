@@ -1,7 +1,7 @@
-# replaces mtn_cis::redhat7::rule::v_1_0_0::rule_5_3
+# replaces cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_3
 #wrong tpe of param for hash usage
-class mtn_cis::redhat7::rule::v_1_0_0::rule_5_3 (
-  $logs = lookup('mtn_cis::logs', Array, 'first',$mtn_cis::params::logs ),
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_3 (
+  $logs = lookup('cis_benchmarks::logs', Array, 'first',$cis_benchmarks::params::logs ),
 ) {
   # includes Rules:
   # 5.3 - Configure logrotate (Not Scored)
@@ -12,7 +12,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_5_3 (
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => epp('mtn_cis/logrotate_syslog.epp',{ logs => $logs }),
+    content => epp('cis_benchmarks/logrotate_syslog.epp',{ logs => $logs }),
   }
 
 } #EOF

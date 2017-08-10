@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_1_14 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_1_14 {
 
   # includes Rules:
   # 1.1.14, 1.1.15, 1.1.16

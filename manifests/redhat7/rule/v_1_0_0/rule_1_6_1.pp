@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_6_1 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_6_1 {
 
   # includes Rules:
   # 1.6.1 - Restrict Core Dumps (Scored)

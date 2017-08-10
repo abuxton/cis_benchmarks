@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_6_5 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_5 {
 
   #includes Rules:
   # 6.5   - Restrict Access to the su Command (Scored)

@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_1_2_2 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_2 {
   # includes Rules:
   # 1.2.2 - Verify Red Hat GPG Key is Installed (Scored)
 

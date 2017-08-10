@@ -1,13 +1,13 @@
 {
-  "name": "mtnc-mtn_cis",
+  "name": "abuxton-cis_benchmarks",
   "version": "0.1.0",
-  "author": "mtnc",
-  "summary": "MTNC module to impliment CIS benchmark on RHEL7",
+  "author": "abuxton",
+  "summary": "module to impliment CIS benchmarks with capability to support mutiple OS and CIS versions",
   "license": "Apache-2.0",
-  "source": "http://git.mtncameroon.net/puppet/mtn-cis",
-  "project_page": "http://git.mtncameroon.net/puppet/mtn-cis",
-  "issues_url": "",
-  "tags": ["rhel7", "cis", "Benchmark", "compliance", "puppet","mtnc"],
+  "source": "http://github.com/abuxton/cis_benchmark",
+  "project_page": "http://github.com/abuxton/cis_benchmark",
+  "issues_url": "http://github.com/abuxton/cis_benchmark/issues",
+  "tags": ["rhel7", "cis", "Benchmark", "compliance", "puppet"],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",

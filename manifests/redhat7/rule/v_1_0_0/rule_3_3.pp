@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_3_3 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_3_3 {
   # includes Rules:
   # 3.3 - Disable Avahi Server (Scored)
   # 3.4 - Disable Print Server - CUPS (Not Scored)

@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_4_4_1 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_4_4_1 {
   # includes Rules:
   # 4.4.1.1 - Disable IP Forwarding (Scored)
   # 4.4.1.2 - Disable Send Packet Redirects (Scored)

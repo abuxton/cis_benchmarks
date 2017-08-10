@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_4_2_1 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_4_2_1 {
   # includes Rules:
   # 4.2.1 - Disable Source Routed Packet Acceptance (Scored)
   # 4.2.2 - Disable ICMP Redirect Acceptance (Scored)

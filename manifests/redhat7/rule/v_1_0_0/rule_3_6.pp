@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_3_6 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_3_6 {
   # includes Rules:
   # 3.6 - Configure Network Time Protocol (NTP) (Scored)
 

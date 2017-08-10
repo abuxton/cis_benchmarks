@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_5_2_4 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_2_4 {
   # includes Rules:
   # 5.2.4 - Record Events That Modify Date and Time Information (Scored)
   # 5.2.5 - Record Events That Modify User/Group Information (Scored)
@@ -20,7 +20,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_5_2_4 {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => epp('mtn_cis/cis.rules.epp'),
+    content => epp('cis_benchmarks/cis.rules.epp'),
   }
   ~> exec { 'restartauditd':
     command     => '/usr/libexec/initscripts/legacy-actions/auditd/restart',
@@ -34,7 +34,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_5_2_4 {
     owner   => root,
     group   => root,
     mode    => '0750',
-    content => epp('mtn_cis/tagprivileged.sh.epp'),
+    content => epp('cis_benchmarks/tagprivileged.sh.epp'),
   }
   ~> exec { 'initial tagging of privileged binaries':
     command     => '/etc/cron.daily/tagprivileged.sh',

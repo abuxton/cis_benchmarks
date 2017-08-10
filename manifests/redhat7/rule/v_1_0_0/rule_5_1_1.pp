@@ -1,10 +1,10 @@
-# replaces mtn_cis::redhat7::rule::v_1_0_0::rule_5_1_1
+# replaces cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_1_1
 #wrong tpe of param for hash usage
-# rsyslogcontent still looks at mtn_cis key as no issue with data
-class mtn_cis::redhat7::rule::v_1_0_0::rule_5_1_1 (
+# rsyslogcontent still looks at cis_benchmarks key as no issue with data
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_1_1 (
 
-  $remotelogserver = lookup('mtn_cis::remotelogserver', String, 'first', $mtn_cis::params::remotelogserver),
-  $rsyslogcontent = lookup('mtn_cis::rsyslogcontent', Hash, 'first', $mtn_cis::params::rsyslogcontent),
+  $remotelogserver = lookup('cis_benchmarks::remotelogserver', String, 'first', $cis_benchmarks::params::remotelogserver),
+  $rsyslogcontent = lookup('cis_benchmarks::rsyslogcontent', Hash, 'first', $cis_benchmarks::params::rsyslogcontent),
 
 ) {
 

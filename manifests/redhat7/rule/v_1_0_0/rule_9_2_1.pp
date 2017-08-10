@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_9_2_1 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_9_2_1 {
   # includes Rules:
   # 9.2.1 - Ensure Password Fields are Not Empty (Scored)
 

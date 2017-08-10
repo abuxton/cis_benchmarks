@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_7_1_1 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_7_1_1 {
   #includes Rules:
   # 7.1.1 - Set Password Expiration Days (Scored)
   # 7.1.2 - Set Password Change Minimum Number of Days (Scored)

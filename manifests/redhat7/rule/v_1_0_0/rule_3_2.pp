@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_3_2 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_3_2 {
   # includes Rules:
   # 3.2 - Remove the X Window System (Scored)
 

@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_9_2_2 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_9_2_2 {
   # includes Rules:
   # 9.2.2 - Verify No Legacy "+" Entries Exist in /etc/passwd File (Scored)
   # 9.2.3 - Verify No Legacy "+" Entries Exist in /etc/shadow File (Scored)

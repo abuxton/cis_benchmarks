@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_9_1_2  {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_9_1_2  {
 
   # includes Rules:
   # 9.1.2 - Verify Permissions on /etc/passwd (Scored)

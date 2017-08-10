@@ -1,4 +1,4 @@
-class mtn_cis::redhat7::rule::v_1_0_0::rule_5_2_3 {
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_2_3 {
   # includes Rules:
   # 5.2.3 - Enable Auditing for Processes That Start Prior to auditd (Scored)
 
