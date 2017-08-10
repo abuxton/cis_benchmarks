@@ -13,43 +13,94 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves. This is your 30 second elevator pitch for your module. Consider including OS/Puppet version it works with.       
+MTN implimentation of CIS module with allowance for changing versions.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology the module integrates with and what that integration enables. This section should answer the questions: "What does this module *do*?" and "Why would I use it?"
+Applys configuration and tests for CIS benchmark from http://cisecurity.org/
+Initially reimpliments V1.0.0 and developed to impliment V2.1.1
 
-If your module has a range of functionality (installation, configuration, management, etc.) this is the time to mention it.
+Supports use of Hieradata, and params.pp class.
+uses Added execute control functionality from `bossbear/cis_rhel7` and  rule_specialperms.pp (and matching rule_specialperms hash in common.yaml) where one can add any extra hashes (file/dir: permission) to enforce permissions on files or directories
+
 
 ## Setup
+clone the module:
+    git clone http://git.mtncameroon.net/puppet/mtn_cis
+
+(See Usage below for staging dependent modules)
 
 ### What mtn_cis affects
 
-* A list of files, packages, services, or operations that the module will alter, impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form. 
+main list of subsystems impacted:
+* sshd (and anything that requires authentication)
+* auditd
+* cron
+* grub
+* su
+* kernel parameters
+* network parameters
+* selinux
+
 
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled, etc.), mention it here. 
+Currently, this module requires 4 additional modules:
+
+1. puppetlabs-stdlib
+2. herculesteam-augeasproviders_core
+2. herculesteam-augeasproviders_pam
+3. fiddyspence-sysctl
 
 ### Beginning with mtn_cis
 
-The very basic steps needed for a user to get the module up and running. 
+Once you've cloned it you can run it two ways:
 
-If your most recent release breaks compatibility or requires particular steps for upgrading, you may wish to include an additional section here: Upgrading (For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+1. Stage all dependent modules in fixtures and run against spec/fixtures/modules directory.  Following the below steps as root:
+
+        cd cis_rhel7
+        bundle install --path vendor/bundle
+        bundle exec rake spec_prep  #this will populate spec/fixtures/modules dir.
+        puppet apply -v --modulepath spec/fixtures/modules examples/init.pp
+2. Manually stage the dependent modules and run against /etc/puppetlabs/code/environments/production/modules directory:
+
+      puppet module install puppetlabs-stdlib
+      puppet module install herculesteam-augeasproviders_core
+      puppet module install herculesteam-augeasproviders_pam
+      puppet module install fiddyspence-sysctl
+      cd cis_rhel7
+      puppet apply -v --modulepath /etc/puppetlabs/code/environments/production/modules examples/init.pp
+
+Obviously, you can add --noop flag to run things in an audit mode.
+
+In order to run RSpec testing run the following commands:
+
+    cd cis_rhel7
+    bundle install --path vendor/path
+    bundle exec rake spec
+
+In order to run beaker testing run the following commands:
+
+    cd cis_rhel7
+    bundle install --path vendor/path
+    bundle exec rake beaker:centos-7-x86_64-docker
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here. 
+Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here.
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module. This section should include all of the under-the-hood workings of your module so people know what the module is touching on their system but don't need to mess with things. (We are working on automating this section!)
+
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+This module was tested using Puppet Agent 4.7 and have been tested on following systems:
+
+1. RedHat 7 x64
+2. CentOS 7 x64
+
+While beaker testing using docker has been created, vagrant testing frame work has not.
 
 ## Development
 
@@ -57,4 +108,5 @@ Since your module is awesome, other users will want to play with it. Let them kn
 
 ## Release Notes/Contributors/Etc **Optional**
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You may also add any additional sections you feel are necessary or important to include here. Please use the `## ` header. 
+Based on the work:
+bossbear/cis_rhel7
