@@ -35,7 +35,8 @@ Facter.add('cis_benchmarks') do
 			validhome=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_validhome.sh')
 			checkgroup=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_checkgroup.sh')
 
-			# Rule 1.1.17
+			# v1.0.0 Rule 1.1.17
+			# v2.0.0 Rule
 			if ww_dirs
 				cis_benchmarks['ww_files'] = ww_files
 			end
@@ -43,139 +44,167 @@ Facter.add('cis_benchmarks') do
 				cis_benchmarks['ww_dirs'] = ww_dirs
 			end
 
-			# Rule 1.2.1
+			# v1.0.0 Rule 1.2.1
+			# v2.0.0 Rule
 			if redhat_network
 				cis_benchmarks['redhat_network'] = redhat_network
 			end
 
-			# Rule 1.2.2
+			# v1.0.0 Rule 1.2.2
+			# v2.0.0 Rule
 			if redhat_gpg
 				cis_benchmarks['redhat_gpg'] = redhat_gpg
 			end
 
-			# Rule 1.2.5
+			# v1.0.0 Rule 1.2.5
+			# v2.0.0 Rule
 			if yum_updates
 				cis_benchmarks['yum_updates'] = yum_updates
 			end
-
-			# Rule 1.4.6
+			# v1.0.0 Rule 1.2.6
+			# v2.0.0 Rule
+			if File.exist?('/etc/.cis_benchmarks_pkg_integrity')
+				cis_benchmarks['pck_integrity'] = Facter::Core::Execution.exec('cat /etc/.cis_benchmarks_pkg_integrity')
+			end
+			# v1.0.0 Rule 1.4.6
+			# v2.0.0 Rule
 			if unconfined_daemons
 				cis_benchmarks['unconfined_daemons'] = unconfined_daemons
 			end
 
-			# Rule 6.3.1
+			# v1.0.0 Rule 6.3.1
+			# v2.0.0 Rule
 			if pw_hash
 				cis_benchmarks['pw_hash'] = pw_hash
 			end
 
-			# Rule 7.2
+			# v1.0.0 Rule 7.2
+			# v2.0.0 Rule
 			if system_acct
 				cis_benchmarks['system_acct'] = ww_dirs
 			end
 
-			# Rule 7.5
+			# v1.0.0 Rule 7.5
+			# v2.0.0 Rule
 			if inactive_acct
 				cis_benchmarks['inactive_acct'] = inactive_acct
 			end
 
-			# Rule 9.1.11
+			# v1.0.0 Rule 9.1.11
+			# v2.0.0 Rule
 			if unowned_files
 				cis_benchmarks['unowned_files'] = unowned_files
 			end
 
-			# Rule 9.1.12
+			# v1.0.0 Rule 9.1.12
+			# v2.0.0 Rule
 			if ungrouped_files
 				cis_benchmarks['ungrouped_files'] = ungrouped_files
 			end
 
-			# Rule 9.1.13
+			# v1.0.0 Rule 9.1.13
+			# v2.0.0 Rule
 			if suid_exec
 				cis_benchmarks['suid_exec'] = suid_exec
 			end
 
-			# Rule 9.1.14
+			# v1.0.0 Rule 9.1.14
+			# v2.0.0 Rule
 			if sgid_exec
 				cis_benchmarks['sgid_exec'] = sgid_exec
 			end
 
-			# Rule 9.2.1
+			# v1.0.0 Rule 9.2.1
+			# v2.0.0 Rule
 			if password_fields
 				cis_benchmarks['password_fields'] = password_fields
 			end
 
-			# Rule 9.2.2
+			# v1.0.0 Rule 9.2.2
+			# v2.0.0 Rule
 			if legacy_entry_passwd
 				cis_benchmarks['legacy_entry_passwd'] = legacy_entry_passwd
 			end
 
-			# Rule 9.2.2
+			# v1.0.0 Rule 9.2.2
+			# v2.0.0 Rule
 			if legacy_entry_shadow
 				cis_benchmarks['legacy_entry_shadow'] = legacy_entry_shadow
 			end
 
-			# Rule 9.2.2
+			# v1.0.0 Rule 9.2.2
+			# v2.0.0 Rule
 			if legacy_entry_group
 				cis_benchmarks['legacy_entry_group'] = legacy_entry_group
 			end
 
-			# Rule 9.2.5
+			# v1.0.0 Rule 9.2.5
+			# v2.0.0 Rule
 			if uid
 				cis_benchmarks['uid'] = uid
 			end
 
 
-			# Rule 9.2.11
+			# v1.0.0 Rule 9.2.11
+			# v2.0.0 Rule
 			if checkgroup
 				cis_benchmarks['checkgroup'] = checkgroup
 			end
 
-			# Rule 9.2.12
+			# v1.0.0 Rule 9.2.12
+			# v2.0.0 Rule
 			if validhome
 				cis_benchmarks['validhome'] = validhome
 			end
 
-			# Rule 9.2.13
+			# v1.0.0 Rule 9.2.13
+			# v2.0.0 Rule
 			if userhome
 				cis_benchmarks['userhome'] = userhome
 			end
 
-			# Rule 9.2.14
+			# v1.0.0 Rule 9.2.14
+			# v2.0.0 Rule
 			if dup_uid
 				cis_benchmarks['dup_uid'] = dup_uid
 			end
 
-			# Rule 9.2.15
+			# v1.0.0 Rule 9.2.15
+			# v2.0.0 Rule
 			if dup_gid
 				cis_benchmarks['dup_gid'] = dup_gid
 			end
 
-			# Rule 9.2.16
+			# v1.0.0 Rule 9.2.16
+			# v2.0.0 Rule
 			if res_uid
 				cis_benchmarks['res_uid'] = res_uid
 			end
 
-			# Rule 9.2.17
+			# v1.0.0 Rule 9.2.17
+			# v2.0.0 Rule
 			if dup_name
 				cis_benchmarks['dup_name'] = dup_name
 			end
 
-			# Rule 9.2.18
+			# v1.0.0 Rule 9.2.18
+			# v2.0.0 Rule
 			if dup_group
 				cis_benchmarks['dup_group'] = dup_group
 			end
 
-			# Rule 9.2.19
+			# v1.0.0 Rule 9.2.19
+			# v2.0.0 Rule
 			if netrc
 				cis_benchmarks['netrc'] = netrc
 			end
 
-			# Rule 9.2.20
+			# v1.0.0 Rule 9.2.20
+			# v2.0.0 Rule
 			if forward
 				cis_benchmarks['forward'] = forward
 			end
-			if File.exist?('/etc/.cis_benchmarks_pkg_integrity')
-				cis_benchmarks['pck_integrity'] = Facter::Core::Execution.exec('cat /etc/.cis_benchmarks_pkg_integrity')
-			end
+
 		cis_benchmarks
 	end
 end
