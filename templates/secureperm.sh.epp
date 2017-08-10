@@ -1,0 +1,4 @@
+#!/bin/sh
+
+find /var/log -type f -exec chmod 600 {} \;
+find /usr/share -perm 666 -exec chmod 644 {} \;

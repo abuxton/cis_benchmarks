@@ -1,0 +1,14 @@
+<%- |
+  Array $logs
+| -%>
+
+<% $logs.each |$log| { -%>
+<%= $log %>
+<% } -%>
+{
+    create 0600 root root
+    sharedscripts
+    postrotate
+    /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
