@@ -1,7 +1,15 @@
-#example of running with alternative version
+# example of running with alternative version
+# alternative decleration
+# $exec_controls = {}
+# class{ '::cis_benchmarks':
+#   cis_version   => 'v_1_0_0',
+#   exec_controls => $exec_controls,
+# }
+#
+# All rules included for comment
 
 $exec_controls = {
-  'rule_1_1_1'  => true,
+  'rule_1_1_1'  => false,
   'rule_1_1_5'  => false,
   'rule_1_1_7'  => false,
   'rule_1_1_14' => false,
