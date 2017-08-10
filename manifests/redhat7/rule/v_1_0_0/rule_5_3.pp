@@ -12,7 +12,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_5_3 (
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => epp('cis_rhel7/logrotate_syslog.epp',{ logs => $logs }),
+    content => epp('mtn_cis/logrotate_syslog.epp',{ logs => $logs }),
   }
 
 } #EOF

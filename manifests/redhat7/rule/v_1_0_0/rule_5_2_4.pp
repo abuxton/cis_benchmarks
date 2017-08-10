@@ -20,7 +20,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_5_2_4 {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => epp('cis_rhel7/cis.rules.epp'),
+    content => epp('mtn_cis/cis.rules.epp'),
   }
   ~> exec { 'restartauditd':
     command     => '/usr/libexec/initscripts/legacy-actions/auditd/restart',
@@ -34,7 +34,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_5_2_4 {
     owner   => root,
     group   => root,
     mode    => '0750',
-    content => epp('cis_rhel7/tagprivileged.sh.epp'),
+    content => epp('mtn_cis/tagprivileged.sh.epp'),
   }
   ~> exec { 'initial tagging of privileged binaries':
     command     => '/etc/cron.daily/tagprivileged.sh',

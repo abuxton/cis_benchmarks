@@ -21,7 +21,7 @@ then
 	# echo facter
 	if [ $ARR != "]" ]
 	then
-        echo $ARR > /etc/.cis_rhel7_pkg_integrity
+        echo $ARR > /etc/.mtn_cis_pkg_integrity
 	fi
 
 fi

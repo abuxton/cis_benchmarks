@@ -21,7 +21,7 @@ Applys configuration and tests for CIS benchmark from http://cisecurity.org/
 Initially reimpliments V1.0.0 and developed to impliment V2.1.1
 
 Supports use of Hieradata, and params.pp class.
-uses Added execute control functionality from `bossbear/cis_rhel7` and  rule_specialperms.pp (and matching rule_specialperms hash in common.yaml) where one can add any extra hashes (file/dir: permission) to enforce permissions on files or directories
+uses Added execute control functionality from `bossbear/mtn_cis` and  rule_specialperms.pp (and matching rule_specialperms hash in common.yaml) where one can add any extra hashes (file/dir: permission) to enforce permissions on files or directories
 
 
 ## Setup
@@ -58,7 +58,7 @@ Once you've cloned it you can run it two ways:
 
 1. Stage all dependent modules in fixtures and run against spec/fixtures/modules directory.  Following the below steps as root:
 
-        cd cis_rhel7
+        cd mtn_cis
         bundle install --path vendor/bundle
         bundle exec rake spec_prep  #this will populate spec/fixtures/modules dir.
         puppet apply -v --modulepath spec/fixtures/modules examples/init.pp
@@ -68,20 +68,20 @@ Once you've cloned it you can run it two ways:
       puppet module install herculesteam-augeasproviders_core
       puppet module install herculesteam-augeasproviders_pam
       puppet module install fiddyspence-sysctl
-      cd cis_rhel7
+      cd mtn_cis
       puppet apply -v --modulepath /etc/puppetlabs/code/environments/production/modules examples/init.pp
 
 Obviously, you can add --noop flag to run things in an audit mode.
 
 In order to run RSpec testing run the following commands:
 
-    cd cis_rhel7
+    cd mtn_cis
     bundle install --path vendor/path
     bundle exec rake spec
 
 In order to run beaker testing run the following commands:
 
-    cd cis_rhel7
+    cd mtn_cis
     bundle install --path vendor/path
     bundle exec rake beaker:centos-7-x86_64-docker
 
@@ -109,4 +109,4 @@ Since your module is awesome, other users will want to play with it. Let them kn
 ## Release Notes/Contributors/Etc **Optional**
 
 Based on the work:
-bossbear/cis_rhel7
+bossbear/mtn_cis

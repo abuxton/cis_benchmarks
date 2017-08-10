@@ -14,7 +14,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_6_3_3 {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => epp('cis_rhel7/password-auth.epp'),
+    content => epp('mtn_cis/password-auth.epp'),
   }
 
   #pam { '(6.3.3) - system-auth: pam_env.so (required)':

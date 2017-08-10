@@ -1,6 +1,6 @@
 # replaces mtn_cis::redhat7::rule::v_1_0_0::rule_5_1_1
 #wrong tpe of param for hash usage
-# rsyslogcontent still looks at cis_rhel7 key as no issue with data
+# rsyslogcontent still looks at mtn_cis key as no issue with data
 class mtn_cis::redhat7::rule::v_1_0_0::rule_5_1_1 (
 
   $remotelogserver = lookup('cis_profile::remotelogserver', String, 'first', $cis_profile::params::remotelogserver),

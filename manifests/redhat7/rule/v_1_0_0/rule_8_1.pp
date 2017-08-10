@@ -16,7 +16,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_8_1  (
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        content => epp('cis_rhel7/banner.epp')
+        content => epp('mtn_cis/banner.epp')
     }
   }
 

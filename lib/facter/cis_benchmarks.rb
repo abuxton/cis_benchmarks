@@ -170,8 +170,8 @@ Facter.add('cis_benchmarks') do
 			if forward
 				cis_benchmarks['forward'] = forward
 			end
-			if File.exist?('/etc/.cis_rhel7_pkg_integrity')
-				cis_benchmarks['pck_integrity'] = Facter::Core::Execution.exec('cat /etc/.cis_rhel7_pkg_integrity')
+			if File.exist?('/etc/.mtn_cis_pkg_integrity')
+				cis_benchmarks['pck_integrity'] = Facter::Core::Execution.exec('cat /etc/.mtn_cis_pkg_integrity')
 			end
 		cis_benchmarks
 	end

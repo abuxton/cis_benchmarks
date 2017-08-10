@@ -1,6 +1,6 @@
 class mtn_cis::redhat7::rule::v_1_0_0::rule_3_7n9n10n11n12n13n14n15 (
 
-  $removepackage = lookup({'name' => 'cis_rhel7::removeserverpackage', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
+  $removepackage = lookup({'name' => 'mtn_cis::removeserverpackage', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
 
 ) {
   # includes Rules:

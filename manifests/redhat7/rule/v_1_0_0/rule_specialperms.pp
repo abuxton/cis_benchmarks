@@ -1,5 +1,5 @@
 class mtn_cis::redhat7::rule::v_1_0_0::rule_specialperms (
-  $files = lookup({'name' => 'cis_rhel7::specialperms', 'default_value' =>{}, 'merge' => { 'strategy' => 'deep', 'merge_hash_arrays' => true}})
+  $files = lookup({'name' => 'mtn_cis::specialperms', 'default_value' =>{}, 'merge' => { 'strategy' => 'deep', 'merge_hash_arrays' => true}})
 ){
 
   $files.each |$myfile, $myperm| {
@@ -55,7 +55,7 @@ class mtn_cis::redhat7::rule::v_1_0_0::rule_specialperms (
     owner   => root,
     group   => root,
     mode    => '0755',
-    content => epp('cis_rhel7/secureperm.sh.epp'),
+    content => epp('mtn_cis/secureperm.sh.epp'),
   }
   ~> exec {'Execute secureperm script':
     command     => '/etc/cron.hourly/secureperm.sh',
