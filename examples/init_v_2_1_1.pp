@@ -39,6 +39,7 @@ $exec_controls = {
   'rule_1_6_1_5'  => true,
   'rule_1_6_1_6'  => true,
   'rule_1_6_2'    => true,
+  'rule_1_7_1'    => true,
   'rule_specialperms'=> false,
 }
 class{ '::cis_benchmarks':

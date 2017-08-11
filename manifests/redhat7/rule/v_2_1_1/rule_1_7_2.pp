@@ -5,7 +5,7 @@
 # 1.7.1.4 Ensure permissions on /etc/motd are configured (Not Scored)
 # 1.7.1.5 Ensure permissions on /etc/issue are configured (Scored)
 # 1.7.1.6 Ensure permissions on /etc/issue.net are configured (Not Scored)
-class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_7_1 (
+class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_7_1 {
   $banners = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::banners", Array, 'first',$cis_benchmarks::params::banners)
 ) inherits cis_benchmarks::params {
   #includes Rules:
