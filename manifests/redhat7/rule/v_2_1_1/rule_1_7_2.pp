@@ -1,24 +1,63 @@
-# 1.7.1 Command Line Warning Banners
-# 1.7.1.1 Ensure message of the day is configured properly (Scored)
-# 1.7.1.2 Ensure local login warning banner is configured properly (Not Scored)
-# 1.7.1.3 Ensure remote login warning banner is configured properly (Not Scored)
-# 1.7.1.4 Ensure permissions on /etc/motd are configured (Not Scored)
-# 1.7.1.5 Ensure permissions on /etc/issue are configured (Scored)
-# 1.7.1.6 Ensure permissions on /etc/issue.net are configured (Not Scored)
-class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_7_1 {
-  $banners = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::banners", Array, 'first',$cis_benchmarks::params::banners)
-) inherits cis_benchmarks::params {
-  #includes Rules:
-  # 8.1 - Set Warning Banner for Standard Login Services (Scored)
-  # 8.2 - Remove OS Information from Login Warning Banners (Scored)
-  $banners.each |$banner| {
-  file { "(1.7.1) - /etc/${banner} exists":
-    ensure => file,
-    path   => "/etc/${banner}",
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-    source => "puppet:///modules/cis_benchmarks/etc/audit/${banner}",
-    }
+# 1.7.2 Ensure GDM login banner is configured (Scored)
+class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_7_2 (
+    Boolean $manage_gdm = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::manage_gdm", Array, 'first',$cis_benchmarks::params::manage_gdm),
+    String $gdm_banner_message_text = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::gdm_banner_message_text", String, 'first',$cis_benchmarks::params::gdm_banner_message_text)
+    ) inherits cis_benchmarks::params{
+$file = '/etc/dconf/profile/gdm'
+$banner_file = '/etc/dconf/db/gdm.d/01-banner-message'
+if $manage_gdm{
+  package { '(1.7.2) Ensure GDM is installed and confiured':
+    ensure => 'installed',
+    name   => 'gdm',
   }
+  file{ "(1.7.2) - ${file} exists":
+    ensure =>  file,
+    path   =>  $file,
+    owner  =>  'root',
+    group  =>  'root',
+    mode   =>  '0644',
+  }
+  file_line { "(1.7.2) ${file} - ensure presence of user-db:user":
+    ensure => present,
+    path   => $file,
+    line   => 'user-db:user',
+    notify =>  Exec['(1.7.2) GDM - update dconf'],
+  }
+  file_line { "(1.7.2) ${file} - ensure presence of system-db:gdm":
+    ensure => present,
+    path   => $file,
+    line   => 'system-db:gdm',
+    notify =>  Exec['(1.7.2) GDM - update dconf'],
+  }
+  file_line { "(1.7.2) ${file} - ensure presence of file-db:/usr/share/gdm/greeter-dconf-defaults":
+    ensure => present,
+    path   => $file,
+    line   => 'file-db:/usr/share/gdm/greeter-dconf-defaults',
+    notify =>  Exec['(1.7.2) GDM - update dconf'],
+  }
+  file{ "(1.7.2) - ${banner_file} exists":
+    ensure =>  file,
+    path   =>  $banner_file,
+    owner  =>  'root',
+    group  =>  'root',
+    mode   =>  '0644',
+  }
+  file_line { "(1.7.2) ${banner_file} - ensure presence of [org/gnome/login-screen]":
+    ensure => present,
+    path   => $banner_file,
+    line   => '[org/gnome/login-screen]',
+    notify =>  Exec['(1.7.2) GDM - update dconf'],
+  }
+  file_line { "(1.7.2) ${banner_file} - ensure presence of banner-message-text='<banner message>'":
+    ensure => present,
+    path   => $banner_file,
+    line   => "banner-message-text='${gdm_banner_message_text}'",
+    notify =>  Exec['(1.7.2) GDM - update dconf'],
+  }
+  exec { '(1.7.2) GDM - update dconf':
+    command => 'dconf update',
+    path    => '/sbin:/bin',
+  }
+}
+
 } #EOF

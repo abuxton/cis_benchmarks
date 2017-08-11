@@ -119,7 +119,9 @@ cis_benchmarks::v_2_1_1::banners:
   - 'motd'
   - 'issue'
   - 'issue.net'
-
+# 1.7.2 GDM
+cis_benchmarks::v_2_1_1::manage_gdm: false
+cis_benchmarks::v_2_1_1::gdm_banner_message_text: ''
 # Rule 2.1.1
 cis_benchmarks::v_2_1_1::removepackage:
   'telnet-server': '(2.1.1) - Telnet server removed'

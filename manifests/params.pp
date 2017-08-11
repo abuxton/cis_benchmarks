@@ -55,6 +55,9 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
           'issue',
           'issue.net',
           ]
+    # 1.7.2 GDM
+    $manage_gdm = false
+    $gdm_banner_message_text = ''
     # rule 3.8
 
         $nfs_services = [
