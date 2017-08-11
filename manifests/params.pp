@@ -39,6 +39,8 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                           'cis_validhome.sh',
                           'cis_checkgroup.sh',
                           ]
+    # Rule 1.1.8 #array of removable media to set nodev
+    $cis_removable_media =[]
     # Rule 1.5.1
     # The default password with the hash below is abcd1234
     # You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
