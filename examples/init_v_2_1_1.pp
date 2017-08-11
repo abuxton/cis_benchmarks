@@ -40,6 +40,8 @@ $exec_controls = {
   'rule_1_6_1_6'  => true,
   'rule_1_6_2'    => true,
   'rule_1_7_1'    => true,
+  'rule_1_7_2'    => true,
+  'rule_1_8'      => false, #fail invoked yum update do not use
   'rule_specialperms'=> false,
 }
 class{ '::cis_benchmarks':
