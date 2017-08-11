@@ -11,7 +11,6 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
 
   if $osrelease == 'redhat7' {
           $benchmark = true #
-          $benchmark_default = true
           $exec_controls = {}
           $cis_scripts =[
                           'cis_ww_files.sh',
@@ -43,16 +42,21 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
     $cis_removable_media =[]
     #
     $cis_aide_hour = '5'
-  
+
     # Rule 1.5.1
     # The default password with the hash below is abcd1234
     # You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
     # NOTE: /usr/bin/grub2-mkpasswd-pbkdf2 command is part of the grub2-tools RPM package on RHEL 7
-        $benchmark_1_5_1_grub = false
-        $grubpwd = 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
 
+        $grubpwd = 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
+    # Rule 1.7.1
+        $banners =[
+          'motd',
+          'issue',
+          'issue.net',
+          ]
     # rule 3.8
-        $benchmark_3_8_nfsservice = true
+
         $nfs_services = [
                           'nfslock',
                           'rpcgssd',
@@ -61,7 +65,7 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                           'rpcsvcgssd',
                           ]
     # 5.1.1
-        $benchmark_5_1_1_rsyslog = true
+
         $remotelogserver         = 'mylogserver.my'
         $rsyslogcontent= {
                           '*.info,mail.none,authpriv.none,cron.none,auth,user.*' => '/var/log/messages',
@@ -76,7 +80,7 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                           'lpr,news,uucp,local0,local1,local2,local3,local4,local5,local6.*'=> '/var/log/unused.log',
                         }
     # 5.3 - Configure logrotate (Not Scored)
-        $benchmark_5_3_logs      = true
+
         $logs = [
                   '/var/log/messages',
                   '/var/log/secure',
@@ -85,13 +89,7 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                   '/var/log/boot.log',
                   '/var/log/cron',
                   ]
-    # Rule 8.1
-        $benchmark_8_1_banners   = false
-        $banners =[
-          '/etc/motd',
-          '/etc/issue',
-          '/etc/issue.net',
-          ]
+
   }
   else {
     $benchmark = false

@@ -11,12 +11,13 @@ class cis_benchmarks::redhat7::rule::v_1_0_0::rule_8_1  (
   # 8.2 - Remove OS Information from Login Warning Banners (Scored)
   $banners.each |$banner| {
     file { "(8.1) - ${banner} exists":
-        ensure  => file,
-        path    => $banner,
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0644',
-        content => epp('cis_benchmarks/banner.epp')
+      ensure =>  file,
+      path   =>  "/etc/${banner}",
+      owner  =>  'root',
+      group  =>  'root',
+      mode   =>  '0644',
+      source =>  "puppet://modules/cis_benchmarks/${banner}")
+      }
     }
   }
 

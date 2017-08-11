@@ -114,6 +114,11 @@ cis_benchmarks::v_2_1_1::cis_aide_hour: '5'
 # You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
 # NOTE: /usr/bin/grub2-mkpasswd-pbkdf2 command is part of the grub2-tools RPM package on RHEL 7
 cis_benchmarks::v_2_1_1::grubpwd: 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
+# Rule 1.7.1
+cis_benchmarks::v_2_1_1::banners:
+  - 'motd'
+  - 'issue'
+  - 'issue.net'
 
 # Rule 2.1.1
 cis_benchmarks::v_2_1_1::removepackage:
@@ -219,11 +224,7 @@ cis_benchmarks::v_2_1_1::sshd_settings:
   '#AllowUsers <user>': 'Rule 6.2.13'
   'Banner /etc/issue.net': 'Rule 6.2.14'
 
-# Rule 8.1
-cis_benchmarks::v_2_1_1::banners:
-  - '/etc/motd'
-  - '/etc/issue'
-  - '/etc/issue.net'
+
 
 # Rule: added permission settings
 cis_benchmarks::v_2_1_1::specialperms:
