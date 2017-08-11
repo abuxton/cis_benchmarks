@@ -1,7 +1,7 @@
 
 class cis_benchmarks::prereq (
-  $cis_scripts_dir = lookup('cis_benchmarks::cis_scripts_dir', String, 'first', '/tmp/cis_scripts/'),
-  $cis_scripts     = lookup('cis_benchmarks::cis_scripts', Array, 'first', $::cis_benchmarks::params::cis_scripts ),
+  $cis_scripts_dir = lookup("cis_benchmarks::${::cis_benchmarks::cis_version}::cis_scripts_dir", String, 'first', '/tmp/cis_scripts/'),
+  $cis_scripts     = lookup("cis_benchmarks::${::cis_benchmarks::cis_version}::cis_scripts", Array, 'first', $::cis_benchmarks::params::cis_scripts ),
 ) inherits ::cis_benchmarks::params {
 
   ### CIS BENCHMARK PREREQUISITE STEPS
