@@ -60,18 +60,18 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
     $gdm_banner_message_text = ''
     # 2.1 inetd services to disbale
     $cis_inetd_services ={
-      'chargen-dgram'=> '(2.1.1) - Disable chargen-dgram'
-      'chargen-stream'=> '(2.1.1) - Disable chargen-stream'
-      'daytime-dgram'=> '(2.1.2) - Disable daytime-dgram'
-      'daytime-stream'=> '(2.1.2) - Disable daytime-stream'
-      'discard-dgram'=> '(2.1.3) - Disable discard-dgram'
-      'discard-stream'=> '(2.1.3) - Disable discard-stream'
-      'echo-dgram'=> '(2.1.4) - Disable echo-dgram'
-      'echo-stream'=> '(2.1.4) - Disable echo-stream'
-      'time-dgram'=> '(2.1.5) - Disable time-dgram'
-      'time-stream'=> '(2.1.5) - Disable time-stream'
-      'tftp-server'=> '(2.1.6) - disable tftp-server'
-      'tftp-server'=> '(2.1.7) - disable xinetd'
+      'chargen-dgram'=> '(2.1.1) - Disable chargen-dgram',
+      'chargen-stream'=> '(2.1.1) - Disable chargen-stream',
+      'daytime-dgram'=> '(2.1.2) - Disable daytime-dgram',
+      'daytime-stream'=> '(2.1.2) - Disable daytime-stream',
+      'discard-dgram'=> '(2.1.3) - Disable discard-dgram',
+      'discard-stream'=> '(2.1.3) - Disable discard-stream',
+      'echo-dgram'=> '(2.1.4) - Disable echo-dgram',
+      'echo-stream'=> '(2.1.4) - Disable echo-stream',
+      'time-dgram'=> '(2.1.5) - Disable time-dgram',
+      'time-stream'=> '(2.1.5) - Disable time-stream',
+      'tftp-server'=> '(2.1.6) - disable tftp-server',
+      'tftp-server'=> '(2.1.7) - disable xinetd'.
     }
     # 2.2.1
     $time_service = 'ntp'
