@@ -45,6 +45,8 @@ $exec_controls = {
   'rule_2_1'      => true,
   'rule_2_2_1'    => true, #needs to know time server and time management package if used
   'rule_2_2_2'    => true,
+  'rule_2_2_3'    => true,
+  'rule_2_2_4'    => true,
   'rule_specialperms'=> false,
 }
 class{ '::cis_benchmarks':
