@@ -8,9 +8,9 @@ hierarchy:
     - name: "Node YAML"
       backend: yaml
       path: "nodes/%{facts.trusted.certname}"
-    - name: "Node Group YAML File"
+    - name: "os family and release YAML"
       backend: yaml
-      path: "nodegroups/%{facts.cis_rhel7_nodegroup}"
+      path: "%{osfamily}/%{operatingsystemrelease}"
     - name: "Default yaml file"
       backend: yaml
-      path: "common"
+      path: "common.yaml"

@@ -1,7 +1,7 @@
 ---
 # Setup execute control hash
 # If you do not want a rule to be enforced, simply turn them to 'false' here
-cis_benchmarks::v_2_1_1::execcontrol:
+cis_benchmarks::v_1_0_0::execcontrol:
   'prereq': false #applied by cis_profile with override if needed
   'rule_1_1_1': false
   'rule_1_1_5': false
@@ -79,8 +79,8 @@ cis_benchmarks::v_2_1_1::execcontrol:
   'rule_specialperms': false
 
 # Pre-req.
-cis_benchmarks::v_2_1_1::cis_scripts_dir: '/tmp/cis_scripts'
-cis_benchmarks::v_2_1_1::cis_scripts:
+cis_benchmarks::v_1_0_0::cis_scripts_dir: '/tmp/cis_scripts'
+cis_benchmarks::v_1_0_0::cis_scripts:
   - 'cis_ww_files.sh'
   - 'cis_ww_dirs.sh'
   - 'cis_yumupdates.sh'
@@ -110,10 +110,10 @@ cis_benchmarks::v_2_1_1::cis_scripts:
 # The default password with the hash below is abcd1234
 # You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
 # NOTE: /usr/bin/grub2-mkpasswd-pbkdf2 command is part of the grub2-tools RPM package on RHEL 7
-cis_benchmarks::v_2_1_1::grubpwd: 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
+cis_benchmarks::v_1_0_0::grubpwd: 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
 
 # Rule 2.1.1
-cis_benchmarks::v_2_1_1::removepackage:
+cis_benchmarks::v_1_0_0::removepackage:
   'telnet-server': '(2.1.1) - Telnet server removed'
   'telnet': '(2.1.2) - Telnet client removed'
   'rsh-server': '(2.1.3) - RSH server removed'
@@ -125,7 +125,7 @@ cis_benchmarks::v_2_1_1::removepackage:
   'talk': '(2.1.9) - Talk client removed'
   'talk-server': '(2.1.10) - Talk server removed'
   'xinetd': '(2.1.11) - Xinetd removed'
-cis_benchmarks::v_2_1_1::removeservice:
+cis_benchmarks::v_1_0_0::removeservice:
   'chargen-dgram': '(2.1.12) - Disable chargen-dgram'
   'chargen-stream': '(2.1.13) - Disable chargen-stream'
   'daytime-dgram': '(2.1.14) - Disable daytime-dgram'
@@ -135,7 +135,7 @@ cis_benchmarks::v_2_1_1::removeservice:
   'tcpmux-server': '(2.1.18) - Disable tcpmux-server'
 
 # 3.8 - Disable NFS and RPC (Not Scored)
-cis_benchmarks::v_2_1_1::nfs_services:
+cis_benchmarks::v_1_0_0::nfs_services:
   - 'nfslock'
   - 'rpcgssd'
   - 'rpcbind'
@@ -151,7 +151,7 @@ cis_benchmarks::v_2_1_1::nfs_services:
 # 3.13 Remove Samba (Not Scored)
 # 3.14 Remove HTTP Proxy Server (Not Scored)
 # 3.15 Remove SNMP Server (Not Scored)
-cis_benchmarks::v_2_1_1::removeserverpackage:
+cis_benchmarks::v_1_0_0::removeserverpackage:
   'openldap-servers': true
   'openldap-clients': true
   'bind': true
@@ -164,8 +164,8 @@ cis_benchmarks::v_2_1_1::removeserverpackage:
 
 # Rule 5.1.1
 # NOTE: remotelogserver should be modified below
-cis_benchmarks::v_2_1_1::remotelogserver: 'mylogserver.my'
-cis_benchmarks::v_2_1_1::rsyslogcontent:
+cis_benchmarks::v_1_0_0::remotelogserver: 'mylogserver.my'
+cis_benchmarks::v_1_0_0::rsyslogcontent:
   '*.info,mail.none,authpriv.none,cron.none,auth,user.*': '/var/log/messages'
   'authpriv.*': '/var/log/secure'
   'mail.*': '-/var/log/maillog'
@@ -178,7 +178,7 @@ cis_benchmarks::v_2_1_1::rsyslogcontent:
   'lpr,news,uucp,local0,local1,local2,local3,local4,local5,local6.*': '/var/log/unused.log'
 
 # 5.3 - Configure logrotate (Not Scored)
-cis_benchmarks::v_2_1_1::logs:
+cis_benchmarks::v_1_0_0::logs:
   - '/var/log/messages'
   - '/var/log/secure'
   - '/var/log/maillog'
@@ -187,11 +187,11 @@ cis_benchmarks::v_2_1_1::logs:
   - '/var/log/cron'
 
 # Rule 6.1.1
-cis_benchmarks::v_2_1_1::cron_files:
+cis_benchmarks::v_1_0_0::cron_files:
   '/etc/anacrontab': 'Rule 6.1.3'
   '/etc/at.allow':   'Rule 6.1.10'
   '/etc/cron.allow': 'Rule 6.1.11'
-cis_benchmarks::v_2_1_1::cron_dirs:
+cis_benchmarks::v_1_0_0::cron_dirs:
   '/etc/cron.hourly':  'Rule 6.1.5'
   '/etc/cron.daily':   'Rule 6.1.6'
   '/etc/cron.weekly':  'Rule 6.1.7'
@@ -200,7 +200,7 @@ cis_benchmarks::v_2_1_1::cron_dirs:
 
 # Rule 6.2.1
 # NOTE: 'AllowUsers' setting is purposely introduced commented out.  If you need this to be set, please uncomment and specify the user by replacing "<user>" string
-cis_benchmarks::v_2_1_1::sshd_settings:
+cis_benchmarks::v_1_0_0::sshd_settings:
   'Protocol 2': 'Rule 6.2.1'
   'LogLevel INFO': 'Rule 6.2.2'
   'X11Forwarding no': 'Rule 6.2.4'
@@ -217,11 +217,11 @@ cis_benchmarks::v_2_1_1::sshd_settings:
   'Banner /etc/issue.net': 'Rule 6.2.14'
 
 # Rule 8.1
-cis_benchmarks::v_2_1_1::banners:
+cis_benchmarks::v_1_0_0::banners:
   - '/etc/motd'
   - '/etc/issue'
   - '/etc/issue.net'
 
 # Rule: added permission settings
-cis_benchmarks::v_2_1_1::specialperms:
+cis_benchmarks::v_1_0_0::specialperms:
   '/root': '0700'
