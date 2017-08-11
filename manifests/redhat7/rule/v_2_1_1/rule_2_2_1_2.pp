@@ -35,7 +35,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_2_2_1_2 (
       line   => 'OPTIONS="-u ntp:ntp"',
       require => Package[$time_server]
     }
-    file_line { "(2.2.1.2) ${file} - ensure OPTIONS="-u ntp:ntp absent":
+    file_line { "(2.2.1.2) ${file} - ensure OPTIONS='-u ntp:ntp absent' ":
       ensure => absent,
       path   => $file,
       line   => 'OPTIONS="-u ntp:ntp"',
