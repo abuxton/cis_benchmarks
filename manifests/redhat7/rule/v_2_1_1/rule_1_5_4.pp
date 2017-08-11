@@ -17,4 +17,4 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_5_3 {
     match  => '^kernel.randomize_va_space',
   }
 
-} #EOF
+  } #EOF
