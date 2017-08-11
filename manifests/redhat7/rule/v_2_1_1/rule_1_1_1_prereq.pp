@@ -1,4 +1,13 @@
-# s
+# required by
+# 1.1.1.1
+# 1.1.1.2
+# 1.1.1.3
+# 1.1.1.4
+# 1.1.1.5
+# 1.1.1.6
+# 1.1.1.7
+# 1.1.1.8
+
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_1_prereq{
 
   $file = '/etc/modprobe.d/CIS.conf'
