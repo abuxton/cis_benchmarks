@@ -8,12 +8,12 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_2_4{
 
       if $redhat_network == 'not registered with RHN'
       {
-        notify { '(1.2.1) - RedHat Repository is not configured': }
+        notify { '(1.2.4) - RedHat Repository is not configured': }
       }
     }
     else
     {
-      notify { '(1.2.1) - This operating system is not RedHat, skipping rule..': }
+      notify { '(1.2.4) - This operating system is not RedHat, skipping rule..': }
     }
 
 
