@@ -6,5 +6,4 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_2_2_9 {
     onlyif  => 'test [$(systemctl is-enabled vsftpd) == "enabled"]',
   }
 
-
 } #EOF
