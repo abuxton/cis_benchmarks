@@ -2,14 +2,22 @@
 # alternative decleration
 # $exec_controls = {}
 # class{ '::cis_benchmarks':
-#   cis_version   => 'v_1_0_0',
+#   cis_version   => 'v_2_1_1',
 #   exec_controls => $exec_controls,
 # }
 #
 # All rules included for comment
 
 $exec_controls = {
-  'rule_1_1_1_1'  => true,
+  'rule_1_1_1_1'  => false,
+  'rule_1_1_1_2'  => false,
+  'rule_1_1_1_3'  => true,
+  'rule_1_1_1_4'  => true,
+  'rule_1_1_1_5'  => true,
+  'rule_1_1_1_6'  => true,
+  'rule_1_1_1_7'  => true,
+  'rule_1_1_1_8'  => true,
+
 
   'rule_specialperms'=> false,
 }
