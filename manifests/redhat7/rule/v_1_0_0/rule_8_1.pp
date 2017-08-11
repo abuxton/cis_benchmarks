@@ -16,7 +16,7 @@ class cis_benchmarks::redhat7::rule::v_1_0_0::rule_8_1  (
       owner  =>  'root',
       group  =>  'root',
       mode   =>  '0644',
-      source =>  "puppet://modules/cis_benchmarks/${banner}")
+      source =>  "puppet:///modules/cis_benchmarks/${banner}",
       }
     }
   }
