@@ -1,0 +1,16 @@
+---
+version: 4
+#defaults:
+datadir: data
+#  data_hash: yaml_data
+#backend: yaml
+hierarchy:
+    - name: "Node YAML"
+      backend: yaml
+      path: "nodes/%{facts.trusted.certname}"
+    - name: "Node Group YAML File"
+      backend: yaml
+      path: "nodegroups/%{facts.cis_rhel7_nodegroup}"
+    - name: "Default yaml file"
+      backend: yaml
+      path: "common"
