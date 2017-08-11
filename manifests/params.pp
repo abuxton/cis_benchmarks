@@ -71,7 +71,7 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
       'time-dgram'=> '(2.1.5) - Disable time-dgram',
       'time-stream'=> '(2.1.5) - Disable time-stream',
       'tftp-server'=> '(2.1.6) - disable tftp-server',
-      'tftp-server'=> '(2.1.7) - disable xinetd'.
+      'tftp-server'=> '(2.1.7) - disable xinetd',
     }
     # 2.2.1
     $time_service = 'ntp'
