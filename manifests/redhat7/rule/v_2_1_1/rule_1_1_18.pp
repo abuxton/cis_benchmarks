@@ -1,7 +1,9 @@
 # 1.1.8 Ensure nodev option set on removable media partitions (Not Scored)
+# 1.1.19 Ensure nosuid option set on removable media partitions (Not Scored)
+# 1.1.20 Ensure noexec option set on removable media partitions (Not Scored)
 
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_18 (
-  Array $cis_removable_media = lookup("cis_benchmarks::${cis_version}::cis_removable_media",Array,'first',$cis_benchmarks::params::cis_removable_media)
+  Array $cis_removable_media = lookup("cis_benchmarks::${::cis_benchmarks::cis_version}::cis_removable_media",Array,'first',$cis_benchmarks::params::cis_removable_media)
   ) inherits cis_benchmarks::params{
 
     $cis_removable_media.each |$media| {
@@ -10,7 +12,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_18 (
         name    => '/$media',
         device  => '/$media',
         fstype  => 'tmpfs',
-        options => 'nodev'
+        options => 'nodev,nosuid,noexec'
     }
 
   }
