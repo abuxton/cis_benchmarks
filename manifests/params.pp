@@ -73,6 +73,9 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
       'tftp-server'=> '(2.1.6) - disable tftp-server'
       'tftp-server'=> '(2.1.7) - disable xinetd'
     }
+    # 2.2.1
+    $time_service = 'ntp'
+    $time_server = ''
     # rule 3.8
 
         $nfs_services = [

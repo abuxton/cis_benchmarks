@@ -153,7 +153,9 @@ cis_benchmarks::v_2_1_1::cis_inetd_services:
   'time-stream': '(2.1.5) - Disable time-stream'
   'tftp-server': '(2.1.6) - disable tftp-server'
   'tftp-server': '(2.1.7) - disable xinetd'
-
+    # 2.2.1
+'cis_benchmarks::v_2_1_1::time_service': 'ntp'
+'cis_benchmarks::v_2_1_1::time_server': ''
 # 3.8 - Disable NFS and RPC (Not Scored)
 cis_benchmarks::v_2_1_1::nfs_services:
   - 'nfslock'
