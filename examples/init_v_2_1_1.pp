@@ -29,6 +29,7 @@ $exec_controls = {
   'rule_1_2_3'   => true,
   'rule_1_2_4'   => true,
   'rule_1_3_1'   => true,
+  'rule_1_4_1'   => true,
 
   'rule_specialperms'=> false,
 }
