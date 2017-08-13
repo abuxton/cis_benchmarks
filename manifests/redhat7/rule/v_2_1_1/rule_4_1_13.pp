@@ -2,7 +2,7 @@
 # 4.1.14 Ensure file deletion events by users are collected (Scored)
 # 4.1.15 Ensure changes to system administration scope (sudoers) is collected (Scored)
 # 4.1.16 Ensure system administrator actions (sudolog) are collected (Scored)
-
+# 4.1.17 Ensure kernel module loading and unloading is collected (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_13 {
   include cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1
   auditd::rule { '(4.1.13) - Ensure successful file system mounts are collected (Scored), 64bit':
@@ -33,4 +33,21 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_13 {
     content => '-w /var/log/sudo.log -p wa -k actions',
     order   => 46,
   }
+  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), insmod':
+    content => '-w /sbin/insmod -p x -k modules',
+    order   => 47,
+  }
+  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), rmmod':
+    content => '-w /sbin/rmmod -p x -k modules',
+    order   => 48,
+  }
+  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), modprobe':
+    content => '-w /sbin/modprobe -p x -k modules',
+    order   => 49,
+  }
+  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), modules':
+    content => '-a always,exit arch=b64 -S init_module -S delete_module -k modules',
+    order   => 50,
+  }
+
 } #EOF
