@@ -69,10 +69,30 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-   #config.vm.synced_folder "./yum/repos", "/var/yum/repos"
-   #config.vm.synced_folder "./tmp/modules", "/etc/puppetlabs/code/modules"
-   #config.vm.provision "shell", inline: <<-SHELL
-    # module install commands here
+  config.vm.synced_folder "./tmp/modules", "/etc/puppetlabs/code/modules"
+  config.vm.synced_folder "./tmp/manifests", "/etc/puppetlabs/code/environments/production/manifests"
+  config.vm.synced_folder "../cis_benchmarks", "/etc/puppetlabs/code/modules/cis_benchmarks"
 
-   #SHELL
+   config.vm.provision "shell", inline: <<-SHELL
+   # to update puppet
+   # see https://docs.puppet.com/puppet/4.7/release_notes.html#puppet-471 for version
+   # puppet module install puppetlabs-puppet_agent into /tmp/modules of the repository before you try use this
+   yum install tree #for reasons
+   sudo rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+   sudo puppet apply -e "class{'puppet_agent': package_version=>'1.7.2'}"
+   # module install commands here
+   # /opt/puppetlabs/puppet/bin/puppet module install abuxton/cis_benchmarks --modulepath=/etc/puppetlabs/code/modules
+   # puppet module install abuxton/cis_benchmarks --modulepath=/etc/puppetlabs/code/modules
+   SHELL
+
+   #PUPPET https://www.vagrantup.com/docs/provisioning/puppet_apply.html
+     config.vm.provision "puppet" do |puppet|
+       puppet.options = "--verbose --debug"
+       puppet.module_path = "tmp/modules"
+       puppet.manifests_path = ["vm", "/etc/puppetlabs/code/environments/production/manifests"]
+       puppet.manifest_file = "default.pp"
+
+     end
+
+
 end
