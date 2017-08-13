@@ -96,6 +96,8 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
     }
     # 3.7
     $cis_wireless_links = []
+    #4_1_12
+    $cis_audit_partitions=[]
     # 5.1.1
 
         $remotelogserver         = 'mylogserver.my'
