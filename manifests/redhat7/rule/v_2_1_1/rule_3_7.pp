@@ -8,7 +8,5 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_7 {
         command => "ip link set ${interface} down",
         path    => '/sbin:/bin',
     }
-    notify { '(3.7)Ensure wireless interfaces are disabled (Not Scored)':
-    }
 
 } #EOF

@@ -96,12 +96,17 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
     }
     # 3.7
     $cis_wireless_links = []
-    #4_1_12
+    #4.1.12
     $cis_audit_partitions=[]
+    #4.2.2
+    $cis_syslog_ng_server = ''
+    $cis_syslog_ng_entries=[
+    'options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600);threaded(yes); };',
+    ]
     # 5.1.1
 
-        $remotelogserver         = 'mylogserver.my'
-        $rsyslogcontent= {
+        $remotelog_server         = 'mylogserver.my'
+        $rsyslog_content= {
                           '*.info,mail.none,authpriv.none,cron.none,auth,user.*' => '/var/log/messages',
                           'authpriv.*' => '/var/log/secure',
                           'mail.*' => '-/var/log/maillog',

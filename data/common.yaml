@@ -165,6 +165,11 @@ cis_benchmarks::v_2_1_1::cis_wireless_links:
 
 #4.1.12 #array
 cis_benchmarks::v_2_1_1::cis_audit_partitions:
+#4.2.2
+cis_benchmarks::v_2_1_1::cis_syslog_ng_server: ''
+cis_benchmarks::v_2_1_1::cis_syslog_ng_entries:
+  - 'options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600); threaded(yes); };'
+
 # Rule 5.1.1
 # NOTE: remotelogserver should be modified below
 cis_benchmarks::v_2_1_1::remotelogserver: 'mylogserver.my'
