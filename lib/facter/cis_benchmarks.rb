@@ -34,6 +34,11 @@ Facter.add('cis_benchmarks') do
 			userhome=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_userhome.sh')
 			validhome=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_validhome.sh')
 			checkgroup=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_checkgroup.sh')
+			verify_root=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_verify_root_path.sh')
+			validate_user_homes=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_validate_user_home_perm.sh')
+			validate_user_dot_files=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_user_dot_files_verified.sh')
+			user_rhosts=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_find_user_dot_rhosts.sh')
+
 
 			# v1.0.0 Rule 1.1.17
 			# v2.0.0 Rule
@@ -103,11 +108,25 @@ Facter.add('cis_benchmarks') do
 			end
 
 			# v1.0.0 Rule 9.1.13
-			# v2.0.0 Rule
+			# v2.0.0 Rule 6.1.14
 			if suid_exec
 				cis_benchmarks['suid_exec'] = suid_exec
 			end
+			# v1.0.0 Rule
+			# v2.0.0 Rule 6.2.1
+			if password_fields
+				cis_benchmarks['password_fields'] = password_fields
+			end
 
+			# v2.0.0 Rule 6.2.6
+			if verify_root
+				cis_benchmarks['verify_root'] = verify_root
+			end
+
+			# v2.0.0 Rule 6.2.8
+			if validate_user_homes
+				cis_benchmarks['validate_user_homes'] = validate_user_homes
+			end
 			# v1.0.0 Rule 9.1.14
 			# v2.0.0 Rule
 			if sgid_exec
@@ -115,7 +134,7 @@ Facter.add('cis_benchmarks') do
 			end
 
 			# v1.0.0 Rule 9.2.1
-			# v2.0.0 Rule
+			# v2.0.0 Rule 6.2.1
 			if password_fields
 				cis_benchmarks['password_fields'] = password_fields
 			end
@@ -152,11 +171,18 @@ Facter.add('cis_benchmarks') do
 			end
 
 			# v1.0.0 Rule 9.2.12
-			# v2.0.0 Rule
+			# v2.0.0 Rule 6.2.7
 			if validhome
 				cis_benchmarks['validhome'] = validhome
 			end
-
+			# v2.0.0 Rule 6.2.10
+			if validate_user_dot_files
+				cis_benchmarks['validate_user_dot_files'] = validate_user_dot_files
+			end
+			# v2.0.0 Rule 6.2.12
+			if user_rhosts
+				cis_benchmarks['user_rhosts'] = user_rhosts
+			end
 			# v1.0.0 Rule 9.2.13
 			# v2.0.0 Rule
 			if userhome

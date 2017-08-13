@@ -4,8 +4,8 @@
 # These and other services should also be audited.
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_2_2_10 {
   service{ '(2.2.10) - Disable HTTP Server (Scored)':
-    name    => 'httpd',
-    enabled => false,
+    name   => 'httpd',
+    enable => false,
   }
 
 } #EOF

@@ -3,6 +3,7 @@
 # 4.2.1.2 Ensure logging is configured (Not Scored)
 # 4.2.1.3 Ensure rsyslog default file permissions configured (Scored)
 # 4.2.1.4 Ensure rsyslog is configured to send logs to a remote log host (Scored)
+# 4.2.4 Ensure permissions on all logfiles are configured (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_2_1(
   String $remotelog_server = lookup('cis_benchmarks::remotelog_server', String, 'first', $cis_benchmarks::params::remotelog_server),
   Hash $rsyslog_content = lookup('cis_benchmarks::rsyslog_content', Hash, 'first', $cis_benchmarks::params::rsyslog_content),
@@ -43,7 +44,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_2_1(
       notify => Service['(4.2.1.1) - Ensure rsyslog Service is enabled (Scored)'],
     }
 
-    file { "(4.2.1.2) - ${logfile} permissions: 0600":
+    file { "(4.2.4) - ${logfile} permissions: 0600":
       ensure => present,
       path   => $logfile,
       mode   => '0600',

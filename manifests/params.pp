@@ -37,6 +37,8 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                           'cis_userhome.sh',
                           'cis_validhome.sh',
                           'cis_checkgroup.sh',
+                          'cis_verify_root_path.sh',
+                          'cis_user_dot_files_verified.sh',
                           ]
     # Rule 1.1.8 #array of removable media to set nodev
     $cis_removable_media =[]
@@ -100,9 +102,9 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
     $cis_audit_partitions=[]
     #4.2.2
     $cis_syslog_ng_server = ''
-    $cis_syslog_ng_entries=[
-    'options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600);threaded(yes); };',
-    ]
+    $cis_syslog_ng_entries = {
+    'options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600);threaded(yes); };' => '/path/to/file',
+  }
     # 5.1.1
 
         $remotelog_server         = 'mylogserver.my'
@@ -118,6 +120,24 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                           'syslog.*' => '/var/log/syslog',
                           'lpr,news,uucp,local0,local1,local2,local3,local4,local5,local6.*'=> '/var/log/unused.log',
                         }
+    #5.2 ssh config
+    $cis_ssh_settings ={
+      '(5.2.2) - Ensure SSH Protocol is set to 2 (Scored)'=>'Protocol 2',
+      '5.2.3 Ensure SSH LogLevel is set to INFO (Scored)'=>'LogLevel INFO',
+      '5.2.4 Ensure SSH X11 forwarding is disabled (Scored)'=>'X11Forwarding no',
+      '5.2.5 Ensure SSH MaxAuthTries is set to 4 or less (Scored)'=>'MaxAuthTries 4',
+      '5.2.6 Ensure SSH IgnoreRhosts is enabled (Scored)'=>'IgnoreRhosts yes',
+      '5.2.7 Ensure SSH HostbasedAuthentication is disabled (Scored)'=>'HostbasedAuthentication no',
+      '5.2.8 Ensure SSH root login is disabled (Scored)'=>'PermitRootLogin no',
+      '5.2.9 Ensure SSH PermitEmptyPasswords is disabled (Scored)'=>'PermitEmptyPasswords no',
+      '5.2.10 Ensure SSH PermitUserEnvironment is disabled (Scored)'=>'PermitUserEnvironment no',
+      '5.2.11 Ensure only approved ciphers are used (Scored)'=>'Ciphers aes256-ctr,aes192-ctr,aes128-ctr',
+      '5.2.12 Ensure only approved MAC algorithms are used (Scored)'=>'MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128- etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com',
+      '5.2.13 Ensure SSH Idle Timeout Interval is configured (Scored), interval'=>'ClientAliveInterval 300',
+      '5.2.13 Ensure SSH Idle Timeout Interval is configured (Scored), countmax'=>'ClientAliveCountMax 4',
+      '5.2.14 Ensure SSH LoginGraceTime is set to one minute or less (Scored)'=>'LoginGraceTime 60',
+      '5.2.16 Ensure SSH warning banner is configured (Scored)'=>'Banner /etc/issue.net',
+    }
     # 5.3 - Configure logrotate (Not Scored)
 
         $logs = [
@@ -129,6 +149,8 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                   '/var/log/cron',
                   ]
 
+    # 5.5 Ensure root login is restricted to system console (Not Scored)
+    $cis_consoles =[]
   }
   else {
     $benchmark = false
