@@ -9,7 +9,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_4_2 {
     group => 'root',
     mode  => '0644',
     }
-  }
+
 file{ '(3.4.2) Ensure /etc/hosts.allow is configured (Scored)':
   ensure  => file,
   path    => '/etc/hosts.allow',

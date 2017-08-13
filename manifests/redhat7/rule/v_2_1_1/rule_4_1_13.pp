@@ -18,7 +18,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_13 {
     content => '-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete',
     order   => 42,
   }
-  auditd::rule { '(4.1.13) - Ensure successful file system mounts are collected (Scored), 32 bit':
+  auditd::rule { '(4.1.14) - Ensure successful file system mounts are collected (Scored), 32 bit':
     content => '-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete',
     order   => 43,
   }
