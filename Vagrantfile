@@ -69,26 +69,10 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-   config.vm.synced_folder "./yum/repos", "/var/yum/repos"
-   
-   config.vm.provision "shell", inline: <<-SHELL
-      sudo yum update
-      sudo yum install -y createrepo rsync nginx#
-      mkdir -p /var/yum/repos/centos/7/{os,updates}/x86_64
-      mkdir -p /var/yum/repos/fedora/epel/7/x86_64
+   #config.vm.synced_folder "./yum/repos", "/var/yum/repos"
+   #config.vm.synced_folder "./tmp/modules", "/etc/puppetlabs/code/modules"
+   #config.vm.provision "shell", inline: <<-SHELL
+    # module install commands here
 
-      rsync -avz -avz --delete --exclude='repo*' \
-      rsync://mirror.bytemark.co.uk/centos/7/os/x86_64/ \
-      /var/yum/repos/centos/7/os/x86_64/
-      rsync -avz -avz --delete --exclude='repo*' \
-      rsync://mirror.bytemark.co.uk/centos/7/updates/x86_64/ \
-      /var/yum/repos/centos/7/updates/x86_64/
-      rsync -avz -avz --delete --exclude='repo*' \
-      rsync://mirror.bytemark.co.uk/fedora/epel/7/x86_64/ \
-      /var/yum/repos/fedora/epel/7/x86_64/
-
-      createrepo --updates /var/yum/repos/centos/7/os/x86_64/
-      createrepo --updates /var/yum/repos/centos/7/updates/x86_64/
-      createrepo --updates /var/yum/repos/fedora/epel/7/x86_64/
-    SHELL
+   #SHELL
 end

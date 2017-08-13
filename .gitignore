@@ -36,6 +36,8 @@ tags
 test/tmp/
 vendor/
 /exec
+/tmp
+tmp/*
 
 # Documentation
 _site/*
