@@ -73,6 +73,7 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
       'tftp-server'=> '(2.1.6) - disable tftp-server',
       'xinetd'=> '(2.1.7) - disable xinetd',
     }
+
     # 2.2.1
     $time_service = 'ntp'
     $time_server = ''
@@ -85,6 +86,16 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                           'rpcidmapd',
                           'rpcsvcgssd',
                           ]
+    # 2.3.1
+    $cis_remove_package = {
+      'ypbind'=> '(2.3.1) - Ensure NIS Client is not installed (Scored)',
+      'rsh'=> '(2.3.2) - Ensure rsh client is not installed (Scored)',
+      'talk'=> '(2.3.3) - Ensure talk client is not installed (Scored)',
+      'telnet'=> '(2.3.4) - Ensure telnet client is not installed (Scored)',
+      'openldap-clients'=> '(2.3.5) - Ensure LDAP client is not installed (Scored)',
+    }
+    # 3.7
+    $cis_wireless_links = []
     # 5.1.1
 
         $remotelogserver         = 'mylogserver.my'

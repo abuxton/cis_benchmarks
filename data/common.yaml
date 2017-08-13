@@ -122,19 +122,8 @@ cis_benchmarks::v_2_1_1::banners:
 # 1.7.2 GDM
 cis_benchmarks::v_2_1_1::manage_gdm: false
 cis_benchmarks::v_2_1_1::gdm_banner_message_text: ''
-# Rule 2.1.1
-cis_benchmarks::v_2_1_1::removepackage:
-  'telnet-server': '(2.1.1) - Telnet server removed'
-  'telnet': '(2.1.2) - Telnet client removed'
-  'rsh-server': '(2.1.3) - RSH server removed'
-  'rsh': '(2.1.4) - RSH client removed'
-  'ypbind': '(2.1.5) - NIS client removed'
-  'ypserv': '(2.1.6) - NIS server removed'
-  'tftp': '(2.1.7) - TFTP client removed'
-  'tftp-server': '(2.1.8) - TFTP server removed'
-  'talk': '(2.1.9) - Talk client removed'
-  'talk-server': '(2.1.10) - Talk server removed'
-  'xinetd': '(2.1.11) - Xinetd removed'
+
+
 cis_benchmarks::v_2_1_1::removeservice:
 
 
@@ -153,10 +142,17 @@ cis_benchmarks::v_2_1_1::cis_inetd_services:
   'time-stream': '(2.1.5) - Disable time-stream'
   'tftp-server': '(2.1.6) - disable tftp-server'
   'xinetd': '(2.1.7) - disable xinetd'
-    # 2.2.1
+# 2.2.1
 'cis_benchmarks::v_2_1_1::time_service': 'ntp'
 'cis_benchmarks::v_2_1_1::time_server': ''
-# 3.8 - Disable NFS and RPC (Not Scored)
+# Rule 2.3.1
+cis_benchmarks::v_2_1_1::cis_remove_package:
+  'ypbind': '(2.3.1) - Ensure NIS Client is not installed (Scored)'
+  'rsh': '(2.3.2) - Ensure rsh client is not installed (Scored)'
+  'talk': '(2.3.3) - Ensure talk client is not installed (Scored)'
+  'telnet': '(2.3.4) - Ensure telnet client is not installed (Scored)'
+  'openldap-clients': '(2.3.5) - Ensure LDAP client is not installed (Scored)'
+# 3.8 - Disable NFS and RPC (Not Scored) #array
 cis_benchmarks::v_2_1_1::nfs_services:
   - 'nfslock'
   - 'rpcgssd'
@@ -164,26 +160,11 @@ cis_benchmarks::v_2_1_1::nfs_services:
   - 'rpcidmapd'
   - 'rpcsvcgssd'
 
-# 3.7 - Remove LDAP (Not Scored)
-# 3.8 - Disable NFS and RPC (Not Scored)
-# 3.9 - Remove DNS Server (Not Scored)
-# 3.10 Remove FTP Server (Not Scored)
-# 3.11 Remove HTTP Server (Not Scored)
-# 3.12 Remove Dovecot (IMAP and POP3 services) (Not Scored)
-# 3.13 Remove Samba (Not Scored)
-# 3.14 Remove HTTP Proxy Server (Not Scored)
-# 3.15 Remove SNMP Server (Not Scored)
-cis_benchmarks::v_2_1_1::removeserverpackage:
-  'openldap-servers': true
-  'openldap-clients': true
-  'bind': true
-  'vsftpd': false
-  'httpd': false
-  'dovecot': true
-  'samba': false
-  'squid': false
-  'net-snmp': true
+# 3.7 Ensure wireless interfaces are disabled (Not Scored) #array
+cis_benchmarks::v_2_1_1::cis_wireless_links:
 
+#4.1.12 #array
+cis_benchmarks::v_2_1_1::cis_audit_partitions:
 # Rule 5.1.1
 # NOTE: remotelogserver should be modified below
 cis_benchmarks::v_2_1_1::remotelogserver: 'mylogserver.my'

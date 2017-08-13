@@ -4,6 +4,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_4_1 {
   $file = '/boot/grub2/grub.cfg'
   $sourcefile = '/etc/grub.d/40_custom'
   $grubpwd = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::grubpwd", String, 'first', $cis_benchmarks::params::grubpwd)
+if !defined(File[$file]){
     file { "(1.4.1) - ${file} ownership":
     ensure => file,
     path   => $file,
@@ -11,6 +12,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_4_1 {
     group  => 'root',
     mode   => '0400',
   }
+}
 
   file_line { "(1.4.2) - set superusers in ${file}":
     ensure => present,
