@@ -43,7 +43,7 @@ $exec_controls = {
   'rule_1_7_2'    => true,
   'rule_1_8'      => false, #fail invoked yum update do not use
   'rule_2_1'      => true,
-  'rule_2_2_1'    => true, #needs to know time server and time management package if used
+  'rule_2_2_1'    => false, #needs to know time server and time management package if used
   'rule_2_2_2'    => true,
   'rule_2_2_3'    => true,
   'rule_2_2_4'    => true,
@@ -56,7 +56,7 @@ $exec_controls = {
   'rule_2_2_11'   => true,
   'rule_2_2_12'   => true,
   'rule_2_2_13'   => true,
-  'rule_2_2_4'    => true,
+  'rule_2_2_14'    => true,
   'rule_specialperms'=> false,
 }
 class{ '::cis_benchmarks':

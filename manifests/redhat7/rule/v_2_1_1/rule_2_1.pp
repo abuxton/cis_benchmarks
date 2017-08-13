@@ -15,5 +15,6 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_2_1 (
         enable => false,
         name   => $service,
       }
+    }
 
 } #EOF

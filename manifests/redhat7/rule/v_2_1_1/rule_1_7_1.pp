@@ -18,7 +18,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_7_1 (
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => "puppet:///modules/cis_benchmarks/etc/audit/${banner}",
+    source => "puppet:///modules/cis_benchmarks/etc/${banner}",
     }
   }
 } #EOF

@@ -1,7 +1,7 @@
 # 1.5.1  Ensure core dumps are restricted (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_5_1 {
   $file = '/etc/security/limits.conf'
-  if !defined(File[$files]){
+  if !defined(File[$file]){
     file { "(1.5.1) - ${file} exists":
       ensure => file,
       path   => $file,
