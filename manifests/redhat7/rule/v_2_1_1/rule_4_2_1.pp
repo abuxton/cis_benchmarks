@@ -18,7 +18,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_2_1(
     ensure    => running,
     enable    => true,
     name      => 'rsyslog',
-    subscribe => package ['(4.2.1) - Ensure rsyslog Package is installed'],
+    subscribe => Package['(4.2.1) - Ensure rsyslog Package is installed'],
   }
   file { "(4.2.1.2) - ${file} exists":
     ensure  => file,
