@@ -1,5 +1,5 @@
 #
-class cis_benchmarks::v2_1_1::special_perms (
+class cis_benchmarks::redhat7::rule::v_2_1_1::rule_special_perms (
   $files = lookup({'name' => 'cis_benchmarks::specialperms', 'default_value' =>{}, 'merge' => { 'strategy' => 'deep', 'merge_hash_arrays' => true}})
 ){
 
