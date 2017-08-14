@@ -112,6 +112,11 @@ While beaker testing using docker has been created, vagrant testing frame work h
 ## Development
 
 Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
+TODO
+----
+
+RHEL6 support
+Tidy up custom facts currently does not support changing script dir or missing scripts well
 
 ## Release Notes/Contributors/Etc **Optional**
 
