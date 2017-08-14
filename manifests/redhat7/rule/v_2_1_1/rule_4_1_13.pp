@@ -30,27 +30,27 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_13 {
     content => '-w /etc/sudoers.d -p wa -k scope',
     order   => 45,
   }
-  audit::rule{ '(4.1.16) - Ensure system administrator actions (sudolog) are collected (Scored)':
+  auditd::rule{ '(4.1.16) - Ensure system administrator actions (sudolog) are collected (Scored)':
     content => '-w /var/log/sudo.log -p wa -k actions',
     order   => 46,
   }
-  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), insmod':
+  auditd::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), insmod':
     content => '-w /sbin/insmod -p x -k modules',
     order   => 47,
   }
-  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), rmmod':
+  auditd::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), rmmod':
     content => '-w /sbin/rmmod -p x -k modules',
     order   => 48,
   }
-  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), modprobe':
+  auditd::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), modprobe':
     content => '-w /sbin/modprobe -p x -k modules',
     order   => 49,
   }
-  audit::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), modules':
+  auditd::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), modules':
     content => '-a always,exit arch=b64 -S init_module -S delete_module -k modules',
     order   => 50,
   }
-  audit::rule{ '(4.1.18) - Ensure the audit configuration is immutable (Scored)':
+  auditd::rule{ '(4.1.18) - Ensure the audit configuration is immutable (Scored)':
     content => '-e 2',
     order   => 199,
   }

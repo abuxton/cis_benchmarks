@@ -9,7 +9,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_2_1(
   Hash $rsyslog_content = lookup('cis_benchmarks::rsyslog_content', Hash, 'first', $cis_benchmarks::params::rsyslog_content),
   )
 {
-  $file = ' /etc/rsyslog.conf'
+  $file = '/etc/rsyslog.conf'
   package { '(4.2.1) - Ensure rsyslog Package is installed':
     ensure => installed,
     name   => 'rsyslog',
@@ -26,8 +26,8 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_2_1(
     mode    => '0600',
     owner   => 'root',
     group   => 'root',
-    require => Package['(5.1.1) - Rsyslog installed'],
-    notify => Service['(4.2.1.1) - Ensure rsyslog Service is enabled (Scored)'],
+    require => Package['(4.2.1) - Ensure rsyslog Package is installed'],
+    notify  => Service['(4.2.1.1) - Ensure rsyslog Service is enabled (Scored)'],
   }
   -> exec { 'Ensure /etc/rsyslog.d/* files are also mode 0600':
     command => 'chmod 600 /etc/rsyslog.d/*',

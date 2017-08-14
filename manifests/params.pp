@@ -121,6 +121,7 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
                           'lpr,news,uucp,local0,local1,local2,local3,local4,local5,local6.*'=> '/var/log/unused.log',
                         }
     #5.2 ssh config
+    $cis_manage_ssh = true
     $cis_ssh_settings ={
       '(5.2.2) - Ensure SSH Protocol is set to 2 (Scored)'=>'Protocol 2',
       '5.2.3 Ensure SSH LogLevel is set to INFO (Scored)'=>'LogLevel INFO',

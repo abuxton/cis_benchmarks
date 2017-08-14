@@ -27,7 +27,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
       enable => true,
     }
 
-  $settings.each |$setting, $rule| {
+  $cis_ssh_settings.each |$setting, $rule| {
     file_line { "${rule}":
       ensure => present,
       path   => $file,
@@ -43,8 +43,8 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
     owner  => 'root',
     group  => 'root',
     notify => Service['(5.2) - Ensure SSH Server Configuration'],
+    }
   }
-
   else{
     fail("(5.2.1 - 5.2.16) - Configure ssh is out of bounds of the ${modulename} or ${caller_module_name} classes")
   }
