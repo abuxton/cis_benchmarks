@@ -90,7 +90,7 @@ Vagrant.configure("2") do |config|
        puppet.options = "--verbose --debug"
        puppet.module_path = "tmp/modules"
        puppet.manifests_path = ["vm", "/etc/puppetlabs/code/environments/production/manifests"]
-       puppet.manifest_file = "default.pp"
+       puppet.manifest_file = "site.pp"
 
      end
 
