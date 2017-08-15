@@ -82,7 +82,6 @@ $exec_controls = {
   'rule_9_2_18' => false,
   'rule_9_2_19' => false,
   'rule_9_2_20' => false,
-  'rule_specialperms'=> false,
 }
 class{ '::cis_benchmarks':
   cis_version   => 'v_1_0_0',

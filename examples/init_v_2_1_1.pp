@@ -125,7 +125,6 @@ $exec_controls = {
   'rule_6_2_17'   => true,
   'rule_6_2_18'   => true,
   'rule_6_2_19'   => true,
-  'rule_specialperms'=> false,
 }
 class{ '::cis_benchmarks':
   cis_version   => 'v_2_1_1',
