@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [ "`echo $PATH | grep ::`" != "" ]; then
     echo "Empty Directory in PATH (::)"
 fi

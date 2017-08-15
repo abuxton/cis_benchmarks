@@ -1,6 +1,6 @@
+#!/bin/sh
 # validate user home perms
 # 6.2.8 Ensure users' home directories permissions are 750 or more restrictive (Scored)
-#!/bin/bash
 for dir in `cat /etc/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 != "/sbin/nologin") { print $6 }'`; do
   dirperm=`ls -ld $dir | cut -f1 -d" "`
   if [ `echo $dirperm | cut -c6`  != "-" ]; then

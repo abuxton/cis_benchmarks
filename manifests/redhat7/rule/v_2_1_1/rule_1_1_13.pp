@@ -4,7 +4,8 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_13{
   file_line { '(1.1.13 - 1.1.14) /home is separate mount':
     path  => '/etc/fstab',
     line  => '#<volume> /home <fstype>  nodev 0 0',
-    #match => '\*/home\*nodev',
+    match => '\*/home\*nodev',
+    replace = false,
   }
 
 }#eof

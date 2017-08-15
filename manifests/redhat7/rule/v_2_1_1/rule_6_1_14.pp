@@ -3,7 +3,7 @@
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_14 {
 
 
-    $files = $::cis_benchmarks['suid_exec']
+    $files = $::cis_benchmarks['sgid_exec']
 
     if $files != ''
     {
