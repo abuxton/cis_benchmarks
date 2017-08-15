@@ -5,7 +5,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_13{
     path  => '/etc/fstab',
     line  => '#<volume> /home <fstype>  nodev 0 0',
     match => '\*/home\*nodev',
-    replace = false,
+    replace => false,
   }
 
 }#eof

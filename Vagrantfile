@@ -74,15 +74,16 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "../cis_benchmarks", "/etc/puppetlabs/code/modules/cis_benchmarks"
 
    config.vm.provision "shell", inline: <<-SHELL
+   yum install tree -y #for reasons
    # to update puppet
    # see https://docs.puppet.com/puppet/4.7/release_notes.html#puppet-471 for version
-   # puppet module install puppetlabs-puppet_agent into /tmp/modules of the repository before you try use this
-   yum install tree #for reasons
    sudo rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
-   sudo puppet apply -e "class{'puppet_agent': package_version=>'1.7.2'}"
+   # puppet module install puppetlabs-puppet_agent into /tmp/modules of the repository before you try use this
    # module install commands here
-   # /opt/puppetlabs/puppet/bin/puppet module install abuxton/cis_benchmarks --modulepath=/etc/puppetlabs/code/modules
-   # puppet module install abuxton/cis_benchmarks --modulepath=/etc/puppetlabs/code/modules
+   sudo /opt/puppetlabs/bin/puppet module install puppetlabs-puppet_agent
+
+   # arbitery puppet usage in this case to update the agent
+   sudo /opt/puppetlabs/bin/puppet apply -e "class{'puppet_agent': package_version=>'1.7.2'}"
    SHELL
 
    #PUPPET https://www.vagrantup.com/docs/provisioning/puppet_apply.html

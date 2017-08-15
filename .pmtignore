@@ -6,9 +6,13 @@ import/
 *.local
 .rbenv-gemsets
 .ruby-version
+.git*
+.vagrant*
 build/
 docs/
 tests/
 log/
 junit/
 tmp/
+pkg/
+Vagrantfile

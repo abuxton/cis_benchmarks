@@ -102,7 +102,6 @@ $exec_controls = {
   'rule_5_5'      => true,
   'rule_5_6'      => true,
   'rule_6_1_1'    => false, #pck_integrity check heavy load
-  'rule_6_1_1'    => true,
   'rule_6_1_2'    => true,
   'rule_6_1_10'   => true,
   'rule_6_1_11'   => true,
