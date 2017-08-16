@@ -6,7 +6,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_13 {
 
   if $files != ''
   {
-      notify { "(6.1.13) Audit SUID executables (Not Scored), FAILED ${files}": }
+      notify { "(6.1.13) Audit SUID executables (Not Scored), FAILED": }
   }
 
 } #EOF

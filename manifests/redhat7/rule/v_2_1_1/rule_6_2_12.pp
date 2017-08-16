@@ -5,9 +5,9 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_2_12 {
 
   if $netrc != ''
   {
-      notify  { "(6.2.12) Ensure no users have .netrc files (Scored): FAILED: ${netrc}" :
+      notify  { "(6.2.12) Ensure no users have .netrc files (Scored): FAILED" :
       }
-      notify  { "(6.2.13) Ensure users' .netrc Files are not group or world accessible: FAILED: ${netrc}" :
+      notify  { "(6.2.13) Ensure users' .netrc Files are not group or world accessible: FAILED" :
       }
   }
 

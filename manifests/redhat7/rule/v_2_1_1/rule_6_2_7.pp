@@ -5,7 +5,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_2_7 {
 
     if $valid != ''
     {
-        notify { "(6.2.7) - Ensure all users' home directories exist (Scored): FAILED: ${valid}": }
+        notify { "(6.2.7) - Ensure all users' home directories exist (Scored): FAILED": }
     }
 
 

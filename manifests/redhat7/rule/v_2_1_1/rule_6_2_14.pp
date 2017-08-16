@@ -5,7 +5,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_2_14 {
 
   if $netrc != ''
   {
-      notify  { "(6.2.14) - Ensure no users have .rhosts files (Scored): FAILED: ${netrc}"  :
+      notify  { '(6.2.14) - Ensure no users have .rhosts files (Scored): FAILED'  :
       }
     }
 

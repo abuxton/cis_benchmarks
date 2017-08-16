@@ -5,6 +5,6 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_6_1_6{
 
   if $ud != ''
   {
-    notify { "(1.6_1_6) - Unconfined daemons present: ${ud}": }
+    notify { "(1.6_1_6) - Unconfined daemons present: FAILED": }
   }
 } #EOF
