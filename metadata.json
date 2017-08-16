@@ -1,13 +1,19 @@
 {
   "name": "abuxton-cis_benchmarks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "abuxton",
   "summary": "module to impliment CIS benchmarks with capability to support mutiple OS and CIS versions",
   "license": "Apache-2.0",
   "source": "http://github.com/abuxton/cis_benchmark",
   "project_page": "http://github.com/abuxton/cis_benchmark",
   "issues_url": "http://github.com/abuxton/cis_benchmark/issues",
-  "tags": ["rhel7", "cis", "Benchmark", "compliance", "puppet"],
+  "tags": [
+    "rhel7",
+    "cis",
+    "Benchmark",
+    "compliance",
+    "puppet"
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
@@ -17,18 +23,36 @@
     }
   ],
   "dependencies": [
-    { "name": "puppetlabs-stdlib", "version_requirement": ">= 4.17.1" },
-    { "name": "herculesteam-augeasproviders_core", "version_requirement": ">= 2.1.3 < 5.0.0" },
-    { "name": "herculesteam-augeasproviders_pam", "version_requirement": ">= 2.1.0 < 5.0.0" },
-    { "name": "fiddyspence/sysctl", "version_requirement": ">= 1.1.0 < 5.0.0" },
-    { "name": "puppetlabs/concat", "version_requirement": ">= 1.1.0 < 5.0.0" },
-    { "name": "kemra102/auditd", "version_requirement": ">= 2.2.0 < 5.0.0" }
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.17.1"
+    },
+    {
+      "name": "herculesteam-augeasproviders_core",
+      "version_requirement": ">= 2.1.3 < 5.0.0"
+    },
+    {
+      "name": "herculesteam-augeasproviders_pam",
+      "version_requirement": ">= 2.1.0 < 5.0.0"
+    },
+    {
+      "name": "fiddyspence/sysctl",
+      "version_requirement": ">= 1.1.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": ">= 1.1.0 < 5.0.0"
+    },
+    {
+      "name": "kemra102/auditd",
+      "version_requirement": ">= 2.2.0 < 5.0.0"
+    }
   ],
   "requirements": [
-  {
-    "name": "puppet",
-    "version_requirement": ">= 4.7"
-  }
-],
-"data_provider": "hiera"
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.7"
+    }
+  ],
+  "data_provider": "hiera"
 }
