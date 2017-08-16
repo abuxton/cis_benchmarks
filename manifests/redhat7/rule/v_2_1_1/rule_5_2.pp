@@ -27,7 +27,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
       enable => true,
     }
 
-  $cis_ssh_settings.each |$setting, $rule| {
+  $cis_ssh_settings.each |$rule, $setting| {
     file_line { "${rule}":
       ensure => present,
       path   => $file,
