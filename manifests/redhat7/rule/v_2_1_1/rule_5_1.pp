@@ -3,8 +3,9 @@
 # 5.1.2 Ensure permissions on /etc/crontab are configured (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_1 {
 service {'{5.1.1} - Ensure cron daemon is enabled (Scored)':
-    ensure  => running,
-    enable  => true,
+    ensure => running,
+    name   => crond,
+    enable => true,
   }
 $cron_files = {
   '/etc/crontab' => '(5.1.2) - Ensure permissions on /etc/crontab are configured (Scored)',
