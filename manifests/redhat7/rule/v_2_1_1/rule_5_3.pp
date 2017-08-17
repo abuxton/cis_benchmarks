@@ -24,7 +24,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_3 {
 $quality_settings.each |$setting| {
   file_line{"(5.3.1) - Ensure password creation requirements are configured (Scored), ${quality_file}, ${setting}":
     ensure => present,
-    path   => $system_file,
+    path   => $quality_file,
     line   => $setting,
     }
   }
