@@ -18,8 +18,8 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_5_1 {
   }
 
   sysctl { '(1.5.1) - Disable Automounting (Scored)':
+  ensure => present,
   name   => 'fs.suid_dumpable',
-  ensure => 'present',
   value  => '0',
 }
 

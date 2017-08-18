@@ -2,7 +2,7 @@
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_6_1_5{
 
   package{ '1.6.1.5 Ensure mcstrans is removed (Scored)':
-    name    => 'mcstrans',
-    ensure  => purged,
+    ensure => purged,
+    name   => 'mcstrans',
   }
 } #EOF

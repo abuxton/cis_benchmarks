@@ -47,7 +47,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_6_1{
   }
 
   package{ '1.6.1.4 Ensure setroubleshoot is removed (Scored)':
-    name    => 'setroubleshoot',
-    ensure  => purged,
+    ensure => purged,
+    name   => 'setroubleshoot',
   }
 } #EOF

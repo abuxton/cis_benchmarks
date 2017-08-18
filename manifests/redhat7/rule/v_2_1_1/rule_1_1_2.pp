@@ -17,7 +17,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_2{
     name    => '/tmp',
     device  => '/tmp',
     fstype  => 'tmpfs',
-    options => 'nodev,nosuid,noexec'
+    options => 'nodev,nosuid,noexec',
   }
 
   } #EOF

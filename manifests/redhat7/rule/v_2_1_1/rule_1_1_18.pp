@@ -12,7 +12,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_18 (
         name    => '/$media',
         device  => '/$media',
         fstype  => 'tmpfs',
-        options => 'nodev,nosuid,noexec'
+        options => 'nodev,nosuid,noexec',
     }
 
   }
