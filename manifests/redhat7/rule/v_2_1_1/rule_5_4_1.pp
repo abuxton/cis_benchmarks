@@ -6,7 +6,7 @@
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_4_1 {
   $file = '/etc/login.defs'
 
-  file { "(7.1.1) - ${file} exists":
+  file { "(5.4.1) - ${file} exists":
     ensure => file,
     path   => $file,
     owner  => 'root',
