@@ -14,7 +14,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_5_1 {
     ensure => present,
     path   => $file,
     line   => '* hard core 0',
-    notify => sysctl['1.5.1 - Disable Automounting (Scored)'],
+    notify => Sysctl['1.5.1 - Disable Automounting (Scored)'],
   }
 
   sysctl { '(1.5.1) - Disable Automounting (Scored)':
