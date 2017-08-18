@@ -15,6 +15,5 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_6 {
     } ->
     notify{'(3.6.5) Ensure firewall rules exist for all open ports (Scored)':
     } ->
-    notify { "{}$module_name} and {$caller_module_name} are not responsible for 3.6.2 - 3.6.5 please configure your firewall":}
-
+    notify { "{$module_name} and {$caller_module_name} are not responsible for 3.6.2 - 3.6.5 please configure your firewall":}
 } #EOF
