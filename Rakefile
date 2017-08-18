@@ -12,6 +12,14 @@ PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.relative = true
 PuppetLint.configuration.ignore_paths = ['spec/**/*.pp', 'pkg/**/*.pp','tmp/*']
 
+desc 'create new PATCH release, rake clean, rake module:bump_commit:patch, rake module:tag'
+task :'release:patch' do
+  Rake::Task['clean'].invoke
+  Rake::Task['module:bump_commit:patch'].invoke
+  Rake::Task['module:tag'].invoke
+  sh 'git push origin `rake module:version`'
+  sh 'git push'
+end
 desc 'Validate manifests, templates, and ruby files'
 task :validate do
   Dir['manifests/**/*.pp'].each do |manifest|
