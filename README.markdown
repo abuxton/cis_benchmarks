@@ -95,9 +95,9 @@ In order to run beaker testing run the following commands:
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here.
+Strongly suggest profiling the module with trlinkin/noop  
 
-## Reference
+##Reference
 
 
 
@@ -107,7 +107,10 @@ This module was tested using Puppet Agent 4.7 and have been tested on following 
 1. RedHat 7 x64
 2. CentOS 7 x64
 
-While beaker testing using docker has been created, vagrant testing frame work has not.
+#### firewall
+The module will test for components and deploy certain packages but it does not enforce iptables or firewalld rules we suggest puppetlabs/firewall for those tasks
+
+
 
 ## Development
 
