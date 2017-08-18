@@ -18,8 +18,8 @@ task :'release:patch' do
   Rake::Task['module:bump_commit:patch'].invoke
   Rake::Task['module:tag'].invoke
   Rake::Task['build'].invoke
-  sh 'git push origin `rake module:version`'
-  sh 'git push'
+  puts 'do git push origin v`rake module:version`'
+  puts 'do git push'
 
 end
 desc 'Validate manifests, templates, and ruby files'
