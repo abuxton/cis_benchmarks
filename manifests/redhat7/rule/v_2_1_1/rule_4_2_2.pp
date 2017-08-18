@@ -37,7 +37,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_2_2(
     file { "(4.2.4) - ${logfile} permissions: 0600":
       ensure => present,
       path   => $logfile,
-      mode   => '0600',
+      mode   => '0640',
       owner  => root,
       group  => root,
     }
