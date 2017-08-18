@@ -6,7 +6,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_11 {
 
   if $files != ''
   {
-      notify { "(6.1.11) Ensure no unowned files or directories exist (Scored), FAILED": }
+      notify { '(6.1.11) Ensure no unowned files or directories exist (Scored), FAILED': }
   }
 
 } #EOF

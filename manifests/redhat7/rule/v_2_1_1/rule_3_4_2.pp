@@ -11,13 +11,13 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_4_2 {
     }
 
 file{ '(3.4.2) Ensure /etc/hosts.allow is configured (Scored)':
-  ensure  => file,
-  path    => '/etc/hosts.allow',
+  ensure => file,
+  path   => '/etc/hosts.allow',
   #no content class should be used to ensure file not configure it.
   }
 file{ '(3.4.3) Ensure /etc/hosts.deny is configured (Scored)':
-  ensure  => file,
-  path    => '/etc/hosts.deny',
+  ensure => file,
+  path   => '/etc/hosts.deny',
     #no content class should be used to ensure file not configure it.
   }
 

@@ -5,7 +5,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_2_16 {
 
   if $uid != ''
   {
-      notify { "(6.2.16) - Ensure no duplicate UIDs exist (Scored): FAILED": }
+      notify { '(6.2.16) - Ensure no duplicate UIDs exist (Scored): FAILED': }
   }
 
 }#EOF

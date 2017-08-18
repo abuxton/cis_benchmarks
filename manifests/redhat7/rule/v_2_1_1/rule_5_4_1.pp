@@ -40,7 +40,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_4_1 {
   exec{'5.4.1.4 Ensure inactive password lock is 30 days or less (Scored)':
       command =>  'useradd -D -f 30',
       path    =>  '/sbin:/bin',
-      unless => "test $(useradd -D | grep INACTIVE)=='INACTIVE=30'!eq'INACTIVE=30' "
+      unless  => "test $(useradd -D | grep INACTIVE)=='INACTIVE=30'!eq'INACTIVE=30' ",
     }
 
 } #EOF

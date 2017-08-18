@@ -2,7 +2,7 @@
 # 3.5.1 Ensure DCCP is disabled (Not Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_5 {
   $file = '/etc/modprobe.d/CIS.conf'
-  include cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_1_prereq #creates /etc/modprobe.d
+  include ::cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_1_prereq #creates /etc/modprobe.d
   if !defined{
     file{ $file :
         ensure => file,

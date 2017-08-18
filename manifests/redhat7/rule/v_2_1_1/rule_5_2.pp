@@ -28,7 +28,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
     }
 
   $cis_ssh_settings.each |$rule, $setting| {
-    file_line { "${rule}":
+    file_line { $rule:
       ensure => present,
       path   => $file,
       line   => $setting,
@@ -46,6 +46,6 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
     }
   }
   else{
-    fail("(5.2.1 - 5.2.16) - Configure ssh is out of bounds of the ${modulename} or ${caller_module_name} classes")
+    fail("(5.2.1 - 5.2.16) - Configure ssh is out of bounds of the ${::modulename} or ${::caller_module_name} classes")
   }
 } #EOF

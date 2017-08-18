@@ -7,8 +7,8 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_2_2_15 {
     notify => Service['(2.2.15) - Postfix reconfigured (Scored)'],
     }
   service{ '(2.2.15) - Postfix reconfigured (Scored)':
-    ensure  => running,
-    name    => 'postfix',
+    ensure => running,
+    name   => 'postfix',
     enable => true,
   }
 } #EOF

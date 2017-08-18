@@ -4,6 +4,6 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_2_6 {
 
   if $paths != ''
   {
-      notify { "(6.2.6) - Ensure root PATH Integrity (Scored): FAILED": }
+      notify { '(6.2.6) - Ensure root PATH Integrity (Scored): FAILED': }
   }
 } #EOF

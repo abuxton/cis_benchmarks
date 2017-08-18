@@ -5,7 +5,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_2_10 {
 
     if $files != ''
     {
-        notify { "(6.2.10) - Ensure users dot files are not group or world writable (Scored): Failed": }
+        notify { '(6.2.10) - Ensure users dot files are not group or world writable (Scored): Failed': }
     }
 
 

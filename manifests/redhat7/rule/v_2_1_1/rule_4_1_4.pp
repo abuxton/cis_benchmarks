@@ -7,7 +7,7 @@
 # 4.1.10 Ensure discretionary access control permission modification events are collected (Scored)
 # 4.1.11 Ensure unsuccessful unauthorized file access attempts are collected (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_4 {
-  include cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1
+  include ::cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1
   auditd::rule { '(4.1.4) - Ensure events that modify date and time information are collected (Scored), 64bit':
     content => '-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change',
     order   => 1,
@@ -123,20 +123,20 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_4 {
   order   => 29,
   }
   auditd::rule { '(4.1.11) Ensure unsuccessful unauthorized file access attempts are collected (Scored), 64bit EACCES':
-    content=> '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access',
-    order => 30,
+    content => '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access',
+    order   => 30,
   }
   auditd::rule { '(4.1.11) Ensure unsuccessful unauthorized file access attempts are collected (Scored), 32bit EACCES':
-    content=> '-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access',
-    order => 31,
+    content => '-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access',
+    order   => 31,
   }
   auditd::rule { '(4.1.11) Ensure unsuccessful unauthorized file access attempts are collected (Scored), 64bit EPERM':
-    content=> '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access',
-    order => 32,
+    content => '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access',
+    order   => 32,
   }
   auditd::rule { '(4.1.11) Ensure unsuccessful unauthorized file access attempts are collected (Scored), 32bit EPERM':
-    content=> '-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access',
-    order => 33,
+    content => '-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access',
+    order   => 33,
   }
 
 

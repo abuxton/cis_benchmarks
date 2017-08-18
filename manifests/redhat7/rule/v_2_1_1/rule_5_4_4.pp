@@ -10,7 +10,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_4_4 {
     mode   => '0444',
   }
 
-  file_line { "5.4.4 Ensure default user umask is 027 or more restrictive (Scored)":
+  file_line { '5.4.4 Ensure default user umask is 027 or more restrictive (Scored)':
     ensure => present,
     path   => $file,
     line   => 'umask 027',

@@ -14,38 +14,38 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_2_2_1_2 (
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        require => Package[$time_service]
+        require => Package[$time_service],
       }
     }
     file_line { "(2.2.1.2) ${file} - ensure ExecStart=/usr/sbin/ntpd -u ntp:ntp present":
-      ensure => present,
-      path   => $file,
-      line   => 'ExecStart=/usr/sbin/ntpd -u ntp:ntp $OPTIONS',
-      require => Package[$time_service]
+      ensure  => present,
+      path    => $file,
+      line    => 'ExecStart=/usr/sbin/ntpd -u ntp:ntp $OPTIONS',
+      require => Package[$time_service],
     }
     file_line { "(2.2.1.2) ${file} - ensure OPTIONS='-u ntp:ntp absent' ":
-      ensure => absent,
-      path   => $file,
-      line   => 'OPTIONS="-u ntp:ntp"',
-      require => Package[$time_service]
+      ensure  => absent,
+      path    => $file,
+      line    => 'OPTIONS="-u ntp:ntp"',
+      require => Package[$time_service],
     }
     file_line { "(2.2.1.2) ${conf_file} - ensure server present":
-      ensure => absent,
-      path   => $conf_file,
-      line   => "server ${time_server}",
-      require => Package[$time_service]
+      ensure  => absent,
+      path    => $conf_file,
+      line    => "server ${time_server}",
+      require => Package[$time_service],
     }
     file_line { "(2.2.1.2) ${conf_file} - ensure restrict -4 present":
-      ensure => absent,
-      path   => $conf_file,
-      line   => "restrict -4 default kod nomodify notrap nopeer noquery",
-      require => Package[$time_service]
+      ensure  => absent,
+      path    => $conf_file,
+      line    => 'restrict -4 default kod nomodify notrap nopeer noquery',
+      require => Package[$time_service],
     }
     file_line { "(2.2.1.2) ${conf_file} - ensure restrict -6 present":
-      ensure => absent,
-      path   => $conf_file,
-      line   => "restrict -6 default kod nomodify notrap nopeer noquery",
-      require => Package[$time_service]
+      ensure  => absent,
+      path    => $conf_file,
+      line    => 'restrict -6 default kod nomodify notrap nopeer noquery',
+      require => Package[$time_service],
     }
 
 

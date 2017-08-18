@@ -6,7 +6,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_12 {
 
   if $files != ''
   {
-      notify { "(6.1.12) - Ensure no ungrouped files or directories exist (Scored), FAILED": }
+      notify { '(6.1.12) - Ensure no ungrouped files or directories exist (Scored), FAILED': }
   }
 
 
