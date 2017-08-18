@@ -1,7 +1,7 @@
 ---
 # Setup execute control hash
 # If you do not want a rule to be enforced, simply turn them to 'false' here
-cis_benchmarks::v_2_1_1::execcontrol:
+cis_benchmarks::v_2_1_1::exec_controls:
   'prereq': false #applied by cis_profile with override if needed
   'rule_1_1_1': false
   'rule_1_1_5': false
