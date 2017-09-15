@@ -18,7 +18,7 @@ file{ '(3.4.2) Ensure /etc/hosts.allow is configured (Scored)':
 file{ '(3.4.3) Ensure /etc/hosts.deny is configured (Scored)':
   ensure => file,
   path   => '/etc/hosts.deny',
-    #no content class should be used to ensure file not configure it.
+  content => 'ALL: ALL',
   }
 
 
