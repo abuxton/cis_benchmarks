@@ -33,10 +33,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
       file_line { $rule:
         ensure   => present,
         path     => $file,
-        line     => $matching_setting,
-        match    => split($setting, '[\s*]')[0],
+        line     => $setting,
+        match    => $matching_setting,
         multiple => 'true',
-        notify => Service['(5.2) - Ensure SSH Server Configuration'],
+        notify   => Service['(5.2) - Ensure SSH Server Configuration'],
       }
     }
   }
