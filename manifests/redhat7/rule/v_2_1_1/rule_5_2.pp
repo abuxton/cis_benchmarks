@@ -31,10 +31,11 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
     $matching_setting    =  split($setting, '[\s*]')[0]
     if $matching_setting =~ /^(?![#])/ {
       file_line { $rule:
-        ensure => present,
-        path   => $file,
-        line   => $matching_setting,
-        match  => split($setting, '[\s*]')[0],
+        ensure   => present,
+        path     => $file,
+        line     => $matching_setting,
+        match    => split($setting, '[\s*]')[0],
+        multiple => 'true',
         notify => Service['(5.2) - Ensure SSH Server Configuration'],
       }
     }
