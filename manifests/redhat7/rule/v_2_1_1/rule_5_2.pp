@@ -35,7 +35,6 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
         path     => $file,
         line     => $setting,
         match    => "^${matching_setting}",
-        multiple => 'true',
         notify   => Service['(5.2) - Ensure SSH Server Configuration'],
       }
     }
