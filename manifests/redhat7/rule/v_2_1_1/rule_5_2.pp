@@ -28,11 +28,15 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
     }
 
   $cis_ssh_settings.each |$rule, $setting| {
-    file_line { $rule:
-      ensure => present,
-      path   => $file,
-      line   => $setting,
-      notify => Service['(5.2) - Ensure SSH Server Configuration'],
+    $matching_setting    =  split($setting, '[\s*]')[0]
+    if $matching_setting =~ /^(?![#])/ {
+      file_line { $rule:
+        ensure   => present,
+        path     => $file,
+        line     => $setting,
+        match    => "^${matching_setting}",
+        notify   => Service['(5.2) - Ensure SSH Server Configuration'],
+      }
     }
   }
 
