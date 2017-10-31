@@ -1,0 +1,5 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "audit for freevxfs mount CIS_benchmark 1.1.1.2"
+}
