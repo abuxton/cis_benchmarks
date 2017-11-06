@@ -26,9 +26,9 @@
 #   }
 # Learn more at: https://puppet.com/docs/bolt/latest/task_metadata.html
 #
-var_mount_var="$(mount | grep /tmp)"
+var_mount_var="$(mount | grep /var)"
 
-if [ "$var_mount_var" != '' ] && [ "$var_mount_var" ~= '/dev/xvdg1 on /var type ext4(rw,relatime,data=ordered)' ]; then
+if [ "$var_mount_var" != '' ] && [ "$var_mount_var" ~= '/dev/xvdg1 on /var type ext4 (rw,relatime,data=ordered)' ]; then
   echo '1.1.6 passed'
 else
   echo "1.1.6 failed: $var_mount_var"
