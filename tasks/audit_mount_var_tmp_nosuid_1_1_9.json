@@ -1,0 +1,7 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Audit for correctly mounted /var/tmp nosuid CIS_benchmark 1.1.9",
+  "parameters": {
+  }
+}
