@@ -29,7 +29,7 @@
 var_tmp="$(mount | grep /tmp)"
 
 if [ "$var_tmp" != '' ] && [ "$var_tmp" ~= 'nodev' ]; then
-  echo '1.1.2 passed'
+  echo '1.1.3 passed'
 else
-  echo "1.1.2 failed: $var_tmp"
+  echo "1.1.3 failed: $var_tmp"
 fi
