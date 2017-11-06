@@ -1,7 +1,7 @@
 {
   "puppet_task_version": 1,
   "supports_noop": false,
-  "description": "A short description of this task",
+  "description": "Audit for correctly mounted /tmp, noexec CIS_benchmark 1.1.5",
   "parameters": {
   }
 }
