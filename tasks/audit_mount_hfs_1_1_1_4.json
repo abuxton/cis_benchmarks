@@ -1,0 +1,7 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "audit for hfs mount CIS_benchmark 1.1.1.4",
+  "parameters": {
+  }
+}
