@@ -1,8 +1,9 @@
 # 1.7.2 Ensure GDM login banner is configured (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_7_2 (
-    Boolean $manage_gdm = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::manage_gdm", Boolean, 'first',$cis_benchmarks::params::manage_gdm),
-    String $gdm_banner_message_text = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::gdm_banner_message_text", String, 'first',$cis_benchmarks::params::gdm_banner_message_text)
-    ) inherits cis_benchmarks::params{
+  Boolean $manage_gdm             = lookup("${cis_benchmarks::cis_version_base}::manage_gdm"),
+  String $gdm_banner_message_text = lookup("${cis_benchmarks::cis_version_base}::gdm_banner_message_text"),
+) {
+
 $file = '/etc/dconf/profile/gdm'
 $banner_file = '/etc/dconf/db/gdm.d/01-banner-message'
 if $manage_gdm{

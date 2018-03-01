@@ -7,8 +7,8 @@
 # 2.1.6 Ensure tftp server is not enabled (Scored)
 # 2.1.7 Ensure xinetd is not enabled (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_2_1 (
-  Hash $cis_inetd_services = lookup("cis_benchmarks::${::cis_benchmarks::cis_version}::cis_inetd_services",Hash,'first',$cis_benchmarks::params::cis_inetd_services)
-  ) inherits cis_benchmarks::params{
+  Hash $cis_inetd_services = lookup("${cis_benchmarks::cis_version_base}::cis_inetd_services"),
+) {
     $cis_inetd_services.each |$service, $desc| {
       service { $desc :
         ensure => stopped,

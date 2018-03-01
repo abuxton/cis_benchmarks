@@ -1,8 +1,8 @@
 # example of running with alternative version
-# alternative decleration
+# alternative declaration
 # $exec_controls = {}
 # class{ '::cis_benchmarks':
-#   cis_version   => 'v_1_0_0',
+#   version       => 'v_1_0_0',
 #   exec_controls => $exec_controls,
 # }
 #
@@ -84,6 +84,6 @@ $exec_controls = {
   'rule_9_2_20' => false,
 }
 class{ '::cis_benchmarks':
-  cis_version   => 'v_1_0_0',
+  version       => 'v_1_0_0',
   exec_controls => $exec_controls,
 }

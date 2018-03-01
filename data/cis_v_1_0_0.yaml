@@ -1,7 +1,19 @@
 ---
+### NOTE: Parts you should override in the global or environment data
+
+# Rule 5.1.1
+# remotelogserver should be modified below
+cis_benchmarks::v_1_0_0::remotelogserver: 'mylogserver.my'
+
+# Rule 1.5.1
+# The default password with the hash below is abcd1234
+# You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
+# NOTE: /usr/bin/grub2-mkpasswd-pbkdf2 command is part of the grub2-tools RPM package on RHEL 7
+cis_benchmarks::v_1_0_0::grubpwd: 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
+
 # Setup execute control hash
-# If you do not want a rule to be enforced, simply turn them to 'false' here
-cis_benchmarks::v_1_0_0::execcontrol:
+# If you want a rule to be enforced, simply turn it to 'true'
+cis_benchmarks::exec_controls:
   'prereq': false #applied by cis_profile with override if needed
   'rule_1_1_1': false
   'rule_1_1_5': false
@@ -78,7 +90,7 @@ cis_benchmarks::v_1_0_0::execcontrol:
   'rule_9_2_20': false
   'rule_specialperms': false
 
-# Pre-req.
+### Parts you generally don't need to change
 cis_benchmarks::v_1_0_0::cis_scripts_dir: '/tmp/cis_scripts'
 cis_benchmarks::v_1_0_0::cis_scripts:
   - 'cis_ww_files.sh'
@@ -106,13 +118,12 @@ cis_benchmarks::v_1_0_0::cis_scripts:
   - 'cis_validhome.sh'
   - 'cis_checkgroup.sh'
 
-# Rule 1.5.1
-# The default password with the hash below is abcd1234
-# You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
-# NOTE: /usr/bin/grub2-mkpasswd-pbkdf2 command is part of the grub2-tools RPM package on RHEL 7
-cis_benchmarks::v_1_0_0::grubpwd: 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
+# 1.2.6
+cis_benchmarks::v_1_0_0::integrity_schedule_range: '1-12'
+cis_benchmarks::v_1_0_0::integrity_schedule_period: 'daily'
+cis_benchmarks::v_1_0_0::integrity_schedule_repeat: '1'
 
-# Rule 2.1.1
+# 2.1.1
 cis_benchmarks::v_1_0_0::removepackage:
   'telnet-server': '(2.1.1) - Telnet server removed'
   'telnet': '(2.1.2) - Telnet client removed'
@@ -188,7 +199,7 @@ cis_benchmarks::v_1_0_0::logs:
 
 # Rule 6.1.1
 cis_benchmarks::v_1_0_0::cron_files:
-  '/etc/anacrontab': 'Rule 6.1.3'
+  '/etc/crontab':    'Rule 6.1.3'
   '/etc/at.allow':   'Rule 6.1.10'
   '/etc/cron.allow': 'Rule 6.1.11'
 cis_benchmarks::v_1_0_0::cron_dirs:
@@ -225,3 +236,30 @@ cis_benchmarks::v_1_0_0::banners:
 # Rule: added permission settings
 cis_benchmarks::v_1_0_0::specialperms:
   '/root': '0700'
+
+# Lookup options
+lookup_options:
+  cis_benchmarks::v_1_0_0::logs:
+    value_type: 'Array'
+    merge:
+      strategy: 'unique'
+  cis_benchmarks::v_1_0_0::removepackage:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_1_0_0::removeservice:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_1_0_0::removeserverpackage:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_1_0_0::cron_files:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_1_0_0::cron_files:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'

@@ -1,6 +1,6 @@
 class cis_benchmarks::redhat7::rule::v_1_0_0::rule_2_1_1 (
-  $removepackage = lookup({'name' => 'cis_benchmarks::removepackage:', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}}),
-  $removeservice = lookup({'name' => 'cis_benchmarks::removeservice:', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
+  Hash $removepackage = lookup({'name' => "${cis_benchmarks::cis_version_base}::removepackage", 'default_value' => {}),
+  Hash $removeservice = lookup({'name' => "${cis_benchmarks::cis_version_base}::removeservice", 'default_value' => {}),
 ) {
   # includes Rules:
   # 2.1.1 - Remove telnet-server (Scored)

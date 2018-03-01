@@ -1,7 +1,5 @@
 class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_2_1 (
-
-  $settings = lookup({'name' => 'cis_benchmarks::sshd_settings', 'default_value' => {}, 'merge' => {'strategy' => 'deep', 'merge_hash_arrays' => true}})
-
+  Hash $settings = lookup({'name' => "${cis_benchmarks::cis_version_base}::sshd_settings", 'default_value' => {}),
 ) {
   # includes Rules:
   # 6.2.1 - Set SSH Protocol to 2 (Scored)
