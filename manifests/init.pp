@@ -11,6 +11,11 @@ class cis_benchmarks(
 ) {
   use ::stdlib
 
+  # Stop if no os/platform support is available.
+  unless $benchmark == true {
+    fail("${facts['os']['name']} ${facts['os']['release']['major'] not supported yet")
+  }
+
   # variable exposed for rules to use (to allow refactoring)
   $cis_version_base = "cis_benchmarks::${version}"
 
