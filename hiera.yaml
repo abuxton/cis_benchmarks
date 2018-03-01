@@ -1,16 +1,16 @@
 ---
-version: 4
-#defaults:
-datadir: data
-#  data_hash: yaml_data
-#backend: yaml
+version: 5
+
+defaults:
+  datadir: data
+  data_hash: yaml_data
+
 hierarchy:
-    - name: "Node YAML"
-      backend: yaml
-      path: "nodes/%{facts.trusted.certname}"
     - name: "os family and release YAML"
-      backend: yaml
-      path: "%{osfamily}/%{operatingsystemrelease}"
+      path: "%{facts.osfamily}/%{facts.operatingsystemmajrelease}.yaml"
+
+    - name: "CIS rules YAML"
+      path: "cis_%{cis_benchmarks::version}.yaml"
+
     - name: "Default yaml file"
-      backend: yaml
       path: "common.yaml"

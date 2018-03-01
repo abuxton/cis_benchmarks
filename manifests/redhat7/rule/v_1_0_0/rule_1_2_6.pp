@@ -1,19 +1,16 @@
-#
+# 1.2.6 - Verify Package Integrity Using RPM (Not Scored)
 class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_6 (
-  String $schedule_range = lookup('cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_6::schedule_range', String, 'first', '1-12'),
-  String $schedule_period = lookup('cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_6::schedule_period', String, 'first', 'daily'),
-  String $schedule_repeat = lookup('cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_6::schedule_repeat', String, 'first', '1'),
-  String $cis_scripts_dir = lookup('cis_benchmarks::cis_scripts_dir', String, 'first','/tmp/cis_scripts'),
-){
-  # includes Rules:
-  # 1.2.6 - Verify Package Integrity Using RPM (Not Scored)
+  String $schedule_range  = lookup("${cis_benchmarks::cis_version_base}::integrity_schedule_range"),
+  String $schedule_period = lookup("${cis_benchmarks::cis_version_base}::integrity_schedule_period"),
+  String $schedule_repeat = lookup("${cis_benchmarks::cis_version_base}::integrity_schedule_repeat"),
+) {
 
   schedule { 'exec cis_pkg_integrity.sh':
     range  => $schedule_range,
     period => $schedule_period,
     repeat => $schedule_repeat,
   }
-  exec { "${cis_scripts_dir}/cis_pkg_integrity.sh":
+  exec { "${cis_benchmarks::scripts_dir}/cis_pkg_integrity.sh":
     path      =>  '/usr/bin',
     schedule  =>  'exec cis_pkg_integrity.sh',
   }

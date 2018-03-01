@@ -1,10 +1,9 @@
 # replaces cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_5_1
-#wrong tpe of param for hash usage
-#class is not paramatized to avoid password in plain text module
-class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_5_1{
+class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_5_1 (
+  String $grubpwd = lookup("${cis_benchmarks::cis_version_base}::grubpwd"),
+) {
   $file = '/boot/grub2/grub.cfg'
   $sourcefile = '/etc/grub.d/40_custom'
-  $grubpwd = lookup('cis_benchmarks::grubpwd', String, 'first', $cis_benchmarks::params::grubpwd)
     file { "(1.5.1 - 1.5.2) - ${file} ownership":
     ensure => file,
     path   => $file,

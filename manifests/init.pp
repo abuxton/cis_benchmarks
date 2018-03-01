@@ -2,24 +2,55 @@
 #cis implimentation
 #
 class cis_benchmarks(
-  String $cis_version     = lookup('cis_benchmarks::version', String,'first','v_2_1_1'),
-  Boolean $benchmark      = lookup('cis_benchmarks::benchmark', Boolean, 'first', $cis_benchmarks::params::benchmark),
-  Hash $exec_controls     = lookup("cis_benchmarks::${cis_version}::exec_controls", Hash, 'first', $cis_benchmarks::params::exec_controls),
-  Optional[String] $cis_scripts_dir = undef,
-  Optional[Array] $cis_scripts  = undef,
-  ) inherits ::cis_benchmarks::params {
-$osrelease = $cis_benchmarks::params::osrelease
+  String $version         = 'v_2_1_1',
+  Boolean $benchmark      = false,
+  Hash $exec_controls     = {},
+  String $osrelease_path  = 'unsupported',
+  Array $cis_scripts      = [],
+  String $cis_scripts_dir = undef,
+) {
+  include ::stdlib
 
-class { '::cis_benchmarks::prereq' :
-  cis_scripts_dir => $cis_scripts_dir,
-  cis_scripts     =>  $cis_scripts,
+  # Stop if no os/platform support is available.
+  unless $benchmark == true {
+    fail("${facts['os']['name']} ${facts['os']['release']['major']} not supported yet")
   }
 
-$exec_controls.each |$rule, $ishouldexecute| {
-  if $ishouldexecute {
-    class{ "::cis_benchmarks::${osrelease}::rule::${cis_version}::${rule}":
-      }
+  # variable exposed for rules to use (to allow refactoring)
+  $cis_version_base = "cis_benchmarks::${version}"
+
+  # Determine script dir to use
+  if( $cis_scripts_dir ) {
+    assert_type(Stdlib::Absolutepath, $cis_scripts_dir)
+    $scripts_dir = $cis_scripts_dir
+  }
+  else {
+    # Fallback to script directory per cis_version of rules
+    $scripts_dir = lookup("${cis_version_base}::cis_scripts_dir", Stdlib::Absolutepath, 'first', '/tmp/cis_scripts/')
+  }
+
+  # location for CIS shell scripts
+  file { $scripts_dir:
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    noop   => false,
+  }
+
+  # place CIS shell scripts in script directory
+  $cis_scripts.each |$item| {
+    file { "${scripts_dir}/${item}":
+      ensure => file,
+      source => "puppet:///modules/cis_benchmarks/${item}",
+      mode   => '0755',
     }
   }
 
+  # Iterate over each rule in the hash
+  $exec_controls.each |$rule, $ishouldexecute| {
+    if $ishouldexecute {
+      include "::cis_benchmarks::${osrelease_path}::rule::${version}::${rule}"
+    }
+  }
 }#EOF
