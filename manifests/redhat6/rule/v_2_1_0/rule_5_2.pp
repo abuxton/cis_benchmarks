@@ -15,7 +15,7 @@
 # 5.2.14 Ensure SSH LoginGraceTime is set to one minute or less (Scored)
 # 5.2.15 Ensure SSH access is limited (Scored)
 # 5.2.16 Ensure SSH warning banner is configured (Scored)
-class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
+class cis_benchmarks::redhat6::rule::v_2_1_0::rule_5_2 (
   Boolean $manage_ssh    = lookup("${cis_benchmarks::cis_version_base}::cis_manage_ssh"),
   Hash $cis_ssh_settings = lookup("${cis_benchmarks::cis_version_base}::cis_ssh_settings", Hash, 'deep', {}),
 ) {

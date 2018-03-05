@@ -4,7 +4,7 @@
 class cis_benchmarks(
   String $version              = 'v_2_1_1',
   Boolean $benchmark           = false,
-  Hash $exec_controls          = [].
+  Hash $exec_controls          = [],
   String $osrelease_path       = undef,
   Optional[Array] $cis_scripts = undef,
   Optional[Stdlib::Absolutepath] $cis_scripts_dir = undef,
@@ -13,7 +13,7 @@ class cis_benchmarks(
 
   # Stop if no os/platform support is available.
   unless $benchmark == true {
-    fail("${facts['os']['name']} ${facts['os']['release']['major'] not supported yet")
+    fail("${facts['os']['name']} ${facts['os']['release']['major']} not supported yet")
   }
 
   # variable exposed for rules to use (to allow refactoring)

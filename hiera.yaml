@@ -7,7 +7,7 @@ defaults:
 
 hierarchy:
     - name: "os family and release YAML"
-      path: "%{osfamily}/%{operatingsystemrelease}"
+      path: "%{facts.osfamily}/%{facts.operatingsystemmajrelease}.yaml"
 
     - name: "CIS rules YAML"
       path: "cis_%{cis_benchmarks::version}.yaml"

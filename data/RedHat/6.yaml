@@ -1,0 +1,26 @@
+---
+cis_benchmarks::version: 'v_2_1_0'
+cis_benchmarks::benchmark: true
+cis_benchmarks::osrelease_path: 'redhat6'
+
+cis_benchmarks::v_2_1_0::cis_ssh_settings:
+  '5.2.12 Ensure only approved MAC algorithms are used (Scored)': 'MACs hmac-sha2-512,hmac-sha2-256'
+
+# Lookup/merge options
+lookup_options:
+  cis_benchmarks::v_2_1_0::logs:
+    value_type: 'Array'
+    merge:
+      strategy: 'unique'
+  cis_benchmarks::v_2_1_0::cis_remove_package:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_2_1_0::cron_files:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_2_1_0::cron_dirs:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
