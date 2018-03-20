@@ -1,6 +1,6 @@
 {
   "name": "abuxton-cis_benchmarks",
-  "version": "0.1.16",
+  "version": "0.1.15",
   "author": "abuxton",
   "summary": "module to impliment CIS benchmarks with capability to support mutiple OS and CIS versions",
   "license": "Apache-2.0",
