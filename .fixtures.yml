@@ -1,5 +1,14 @@
 fixtures:
-  repositories:
-    stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
   symlinks:
     cis_benchmarks: "#{source_dir}"
+  forge_modules:
+    augeasproviders_core:
+      repo: "herculesteam/augeasproviders_core"
+    augeasproviders_pam:
+      repo: "herculesteam/augeasproviders_pam"
+    concat:
+      repo: "puppetlabs/concat"
+    stdlib:
+      repo: "puppetlabs/stdlib"
+    auditd:
+      repo: "kemra102/auditd"
