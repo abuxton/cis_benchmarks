@@ -3,7 +3,7 @@ require 'facter'
 
 Facter.add('fact_temp_dir') do
   confine :osfamily => 'RedHat'
-  set do
+  setcode do
     '/opt/tmp'
   end
 end
