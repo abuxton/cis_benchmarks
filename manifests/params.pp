@@ -155,6 +155,7 @@ $osrelease = "${::cis_benchmarks::params::osfamily}${osreleasemajor}"
   }
   else {
     $benchmark = false
+    $exec_controls = {}
     #fail("$facts['operatingsystem'] $facts['os'].['release']} not supported")
     }
 } #EOF

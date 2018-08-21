@@ -8,18 +8,26 @@ class cis_benchmarks(
   Optional[String] $cis_scripts_dir = undef,
   Optional[Array] $cis_scripts  = undef,
   ) inherits ::cis_benchmarks::params {
+
 $osrelease = $cis_benchmarks::params::osrelease
 
-class { '::cis_benchmarks::prereq' :
-  cis_scripts_dir => $cis_scripts_dir,
-  cis_scripts     =>  $cis_scripts,
-  }
+  case $::osfamily {
 
-$exec_controls.each |$rule, $ishouldexecute| {
-  if $ishouldexecute {
-    class{ "::cis_benchmarks::${osrelease}::rule::${cis_version}::${rule}":
+  redhat: {
+    class { '::cis_benchmarks::prereq' :
+      cis_scripts_dir => $cis_scripts_dir,
+      cis_scripts     =>  $cis_scripts,
+      }
+
+    $exec_controls.each |$rule, $ishouldexecute| {
+      if $ishouldexecute {
+        class{ "::cis_benchmarks::${osrelease}::rule::${cis_version}::${rule}":
+          }
+        }
       }
     }
-  }
 
-}#EOF
+  default: {fail("cis_benchmarks is not supported on ${::osfamily}")}
+  }
+}
+#EOF

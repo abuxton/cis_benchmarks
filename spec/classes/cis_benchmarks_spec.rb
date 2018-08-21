@@ -19,6 +19,7 @@ describe 'cis_benchmarks' do
     describe 'cis_benchmarks class without any parameters on Solaris/Nexenta' do
       let(:facts) do
         {
+          :osfamily => 'Solaris',
           :os => {
             :name    => 'Solaris',
             :release => {
@@ -28,7 +29,7 @@ describe 'cis_benchmarks' do
         }
       end
 
-      it { expect { is_expected.to contain_package('cis_benchmarks') }.to raise_error(Puppet::Error, /Solaris 11 not supported yet/) }
+      it {  is_expected.to  compile.and_raise_error(/cis_benchmarks is not supported on Solaris/) }
     end
   end
 end
