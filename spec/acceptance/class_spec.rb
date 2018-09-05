@@ -9,17 +9,17 @@ describe 'cis_benchmarks class' do
       EOS
 
       # Run it twice and test for idempotency
-      apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes  => true)
+      apply_manifest(pp,{:hiera_config => '/etc/puppetlabs/puppet/hiera.yaml', :catch_failures => true})
+      apply_manifest(pp,{:hiera_config => '/etc/puppetlabs/puppet/hiera.yaml', :catch_changes  => true})
     end
 
-    describe package('cis_benchmarks') do
-      it { is_expected.to be_installed }
-    end
+    #describe package('cis_benchmarks') do
+    #  it { is_expected.to be_installed }
+    #end
 
-    describe service('cis_benchmarks') do
-      it { is_expected.to be_enabled }
-      it { is_expected.to be_running }
-    end
+    #describe service('cis_benchmarks') do
+    #  it { is_expected.to be_enabled }
+    #  it { is_expected.to be_running }
+    #end
   end
 end

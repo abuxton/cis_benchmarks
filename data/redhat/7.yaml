@@ -119,7 +119,7 @@ cis_benchmarks::v_2_1_1::exec_controls:
   'rule_6_2_19': true
 
 # Pre-req.
-cis_benchmarks::v_2_1_1::cis_scripts_dir: '/opt/packer-temp/cis_scripts'
+cis_benchmarks::v_2_1_1::cis_scripts_dir: '/opt/tmp/cis_scripts'
 cis_benchmarks::v_2_1_1::cis_scripts:
   - 'cis_ww_files.sh'
   - 'cis_ww_dirs.sh'
