@@ -1,3 +1,4 @@
-YYYY-MM-DD Release 0.1.0
-- something you did
-- something else you did
+2018-09-11 Release 0.1.0
+
+- include beaker testing (master,agent)
+- fix some typo errors

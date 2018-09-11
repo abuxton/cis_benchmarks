@@ -77,31 +77,31 @@ cis_benchmarks::v_2_1_1::exec_controls:
   'rule_3_5': true
   'rule_3_6': true
   'rule_3_7': false
-  'rule_4_1': true
+  'rule_4_1': false
   'rule_4_1_3': true
-  'rule_4_1_4': true
+  'rule_4_1_4': false #audit rule
   'rule_4_1_12': false #partitions audit
-  'rule_4_1_13': true
-  'rule_4_2_1': true
+  'rule_4_1_13': false
+  'rule_4_2_1': false #do not install syslog packages
   'rule_4_2_2': false
-  'rule_4_2_3': true
-  'rule_4_3': true
+  'rule_4_2_3': false #do not check for syslog yet
+  'rule_4_3': false
   'rule_5_1': true
-  'rule_5_2': true #ssh configuration
+  'rule_5_2': true  #ssh configuration
   'rule_5_3': true
   'rule_5_4_1': true
-  'rule_5_4_2': true
+  'rule_5_4_2': false
   'rule_5_4_3': true
   'rule_5_4_4': true
   'rule_5_5': true
   'rule_5_6': true
-  'rule_6_1_1': true
+  'rule_6_1_1': false
   'rule_6_1_2': true
   'rule_6_1_10': true
   'rule_6_1_11': true
   'rule_6_1_12': true
-  'rule_6_1_13': true
-  'rule_6_1_14': true
+  'rule_6_1_13': false
+  'rule_6_1_14': false
   'rule_6_2_1': true
   'rule_6_2_2': true
   'rule_6_2_5': true
@@ -119,7 +119,7 @@ cis_benchmarks::v_2_1_1::exec_controls:
   'rule_6_2_19': true
 
 # Pre-req.
-cis_benchmarks::v_2_1_1::cis_scripts_dir: '/opt/tmp/cis_scripts'
+cis_benchmarks::v_2_1_1::cis_scripts_dir: '/tmp/cis_scripts'
 cis_benchmarks::v_2_1_1::cis_scripts:
   - 'cis_ww_files.sh'
   - 'cis_ww_dirs.sh'
@@ -229,13 +229,13 @@ cis_benchmarks::v_2_1_1::rsyslogcontent:
   'lpr,news,uucp,local0,local1,local2,local3,local4,local5,local6.*': '/var/log/unused.log'
 #5.2 ssh config
 cis_benchmarks::v_2_1_1::cis_sshd_settings:
-  '(5.2.2) - Ensure SSH Protocol is set to 2 (Scored)': 'Protocol 3'
+  '(5.2.2) - Ensure SSH Protocol is set to 2 (Scored)': 'Protocol 2'
   '5.2.3 Ensure SSH LogLevel is set to INFO (Scored)': 'LogLevel INFO'
   '5.2.4 Ensure SSH X11 forwarding is disabled (Scored)': 'X11Forwarding no'
   '5.2.5 Ensure SSH MaxAuthTries is set to 4 or less (Scored)': 'MaxAuthTries 4'
   '5.2.6 Ensure SSH IgnoreRhosts is enabled (Scored)': 'IgnoreRhosts yes'
   '5.2.7 Ensure SSH HostbasedAuthentication is disabled (Scored)': 'HostbasedAuthentication no'
-  '5.2.8 Ensure SSH root login is disabled (Scored)': 'PermitRootLogin no'
+  '5.2.8 Ensure SSH root login is disabled (Scored)': 'PermitRootLogin yes'
   '5.2.9 Ensure SSH PermitEmptyPasswords is disabled (Scored)': 'PermitEmptyPasswords no'
   '5.2.10 Ensure SSH PermitUserEnvironment is disabled (Scored)': 'PermitUserEnvironment no'
   '5.2.11 Ensure only approved ciphers are used (Scored)': 'Ciphers aes256-ctr,aes192-ctr,aes128-ctr'
@@ -267,25 +267,6 @@ cis_benchmarks::v_2_1_1::cron_dirs:
   '/etc/cron.weekly':  'Rule 6.1.7'
   '/etc/cron.monthly': 'Rule 6.1.8'
   '/etc/cron.d':       'Rule 6.1.9'
-
-# Rule 6.2.1
-# NOTE: 'AllowUsers' setting is purposely introduced commented out.  If you need this to be set, please uncomment and specify the user by replacing "<user>" string
-cis_benchmarks::v_2_1_1::sshd_settings:
-  'Protocol 2': 'Rule 6.2.1'
-  'LogLevel INFO': 'Rule 6.2.2'
-  'X11Forwarding no': 'Rule 6.2.4'
-  'MaxAuthTries 4': 'Rule 6.2.5'
-  'IgnoreRhosts yes': 'Rule 6.2.6'
-  'HostbasedAuthentication no': 'Rule 6.2.7'
-  'PermitRootLogin no': 'Rule 6.2.8'
-  'PermitEmptyPasswords no': 'Rule 6.2.9'
-  'PermitUserEnvironment no': 'Rule 6.2.10'
-  'Ciphers aes128-ctr,aes192-ctr,aes256-ctr': 'Rule 6.2.11'
-  'ClientAliveInterval 300': 'Rule 6.2.12'
-  'ClientAliveCountMax 0': 'Rule 6.2.12'
-  '#AllowUsers <user>': 'Rule 6.2.13'
-  'Banner /etc/issue.net': 'Rule 6.2.14'
-
 
 
 # Rule: added permission settings

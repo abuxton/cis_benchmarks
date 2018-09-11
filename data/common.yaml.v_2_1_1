@@ -80,7 +80,7 @@ cis_benchmarks::v_2_1_1::exec_controls:
   'rule_specialperms': false
 
 # Pre-req.
-cis_benchmarks::v_2_1_1::cis_scripts_dir: '/tmp/cis_scripts'
+cis_benchmarks::v_2_1_1::cis_scripts_dir: '/opt/tmp/cis_scripts'
 cis_benchmarks::v_2_1_1::cis_scripts:
   - 'cis_ww_files.sh'
   - 'cis_ww_dirs.sh'
@@ -238,7 +238,7 @@ cis_benchmarks::v_2_1_1::sshd_settings:
   'MaxAuthTries 4': 'Rule 6.2.5'
   'IgnoreRhosts yes': 'Rule 6.2.6'
   'HostbasedAuthentication no': 'Rule 6.2.7'
-  'PermitRootLogin no': 'Rule 6.2.8'
+  'PermitRootLogin yes': 'Rule 6.2.8'
   'PermitEmptyPasswords no': 'Rule 6.2.9'
   'PermitUserEnvironment no': 'Rule 6.2.10'
   'Ciphers aes128-ctr,aes192-ctr,aes256-ctr': 'Rule 6.2.11'

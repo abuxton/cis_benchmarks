@@ -14,6 +14,7 @@ $osrelease = $cis_benchmarks::params::osrelease
   case $::osfamily {
 
   redhat: {
+
     class { '::cis_benchmarks::prereq' :
       cis_scripts_dir => $cis_scripts_dir,
       cis_scripts     =>  $cis_scripts,
@@ -21,6 +22,7 @@ $osrelease = $cis_benchmarks::params::osrelease
 
     $exec_controls.each |$rule, $ishouldexecute| {
       if $ishouldexecute {
+        notice("loading rule ${rule}")
         class{ "::cis_benchmarks::${osrelease}::rule::${cis_version}::${rule}":
           }
         }

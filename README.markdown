@@ -100,6 +100,12 @@ Strongly suggest profiling the module with trlinkin/noop
 ##Reference
 
 
+## Beaker Testing - Puppet 5
+
+* export `BEAKER_TESTMODE=agent`
+* export `BEAKER_PUPPET_COLLECTION=puppet5`
+* export `BEAKER_PUPPET_AGENT_VERSION=5.3.1`
+* export `PUPPET_INSTALL_TYPE=foss` #It seems like this cannot be read from the nodeset file
 
 ## Limitations
 
