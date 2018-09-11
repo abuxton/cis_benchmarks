@@ -1,6 +1,7 @@
 # CIS Benchmarks
 require 'facter'
 
+#override facter: FACTER_fact_temp_dir
 Facter.add('fact_temp_dir') do
   confine :osfamily => 'RedHat'
   setcode do
@@ -185,7 +186,7 @@ Facter.add('cis_benchmarks') do
                   cis_benchmarks['forward'] = forward
               end
 	  else
-         Facter.warn('Scripts Directory must exist before executing any of the bash scripts') 
+         Facter.warn('Scripts Directory must exist before executing any of the bash scripts')
 	  end
         cis_benchmarks
 	end

@@ -107,6 +107,9 @@ Strongly suggest profiling the module with trlinkin/noop
 * export `BEAKER_PUPPET_AGENT_VERSION=5.3.1`
 * export `PUPPET_INSTALL_TYPE=foss` #It seems like this cannot be read from the nodeset file
 
+* run provisioning `BEAKER_destroy=no BEAKER_debug=yes bundle exec rspec spec/acceptance`
+* run provisioning with existing vms `BEAKER_provision=no BEAKER_destroy=no BEAKER_debug=yes bundle exec rspec spec/acceptance`
+
 ## Limitations
 
 This module was tested using Puppet Agent 4.7 and have been tested on following systems:
