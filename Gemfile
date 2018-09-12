@@ -1,6 +1,6 @@
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
-puppetversion = ENV.key?('PUPPET_VERSION') ? ENV['PUPPET_VERSION'] : ['>= 4.9']
+puppetversion = ENV.key?('PUPPET_VERSION') ? ENV['PUPPET_VERSION'] : ['>= 5.3']
 gem 'metadata-json-lint'
 gem 'puppet', puppetversion
 gem 'puppetlabs_spec_helper', '>= 1.0.0'
@@ -10,7 +10,7 @@ gem 'rspec-puppet'
 gem 'rspec-puppet-facts'
 gem 'rspec-puppet-utils'
 gem 'simplecov-console'
-gem 'beaker', '<= 3.37.0'
+gem 'beaker'
 gem 'beaker-puppet'
 gem 'beaker-rspec'
 gem 'beaker-vagrant'
