@@ -22,7 +22,7 @@ $osrelease = $cis_benchmarks::params::osrelease
 
     $exec_controls.each |$rule, $ishouldexecute| {
       if $ishouldexecute {
-        notice("loading rule ${rule}")
+        #notice("loading rule ${rule}")
         class{ "::cis_benchmarks::${osrelease}::rule::${cis_version}::${rule}":
           }
         }
