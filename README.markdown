@@ -102,10 +102,21 @@ Strongly suggest profiling the module with trlinkin/noop
 
 ## Beaker Testing - Puppet 5
 
+For Puppet Master/Agent Setup
+
 * export `BEAKER_TESTMODE=agent`
 * export `BEAKER_PUPPET_COLLECTION=puppet5`
 * export `BEAKER_PUPPET_AGENT_VERSION=5.3.1`
 * export `PUPPET_INSTALL_TYPE=foss` #It seems like this cannot be read from the nodeset file
+
+For Puppet Apply Setup
+
+* export `BEAKER_TESTMODE=apply`
+* export `BEAKER_PUPPET_COLLECTION=puppet5`
+* export `BEAKER_PUPPET_AGENT_VERSION=5.3.1`
+* export `PUPPET_INSTALL_TYPE=foss` #It seems like this cannot be read from the nodeset file
+
+
 
 * run provisioning `BEAKER_destroy=no BEAKER_debug=yes bundle exec rspec spec/acceptance`
 * run provisioning with existing vms `BEAKER_provision=no BEAKER_destroy=no BEAKER_debug=yes bundle exec rspec spec/acceptance`
