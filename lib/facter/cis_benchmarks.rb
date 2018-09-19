@@ -12,17 +12,13 @@ end
 Facter.add('cis_benchmarks') do
 	confine :osfamily => 'RedHat'
 	setcode do
-
         fact_temp_dir = Facter.value(:fact_temp_dir)
-
 		cis_benchmarks = {}
-
 		Facter::Core::Execution.exec("test -d #{fact_temp_dir}/cis_scripts")
 
         #TODO: If the scripts directory exist then the execution of the bash scripts
         #      can be performed and otherwise the return should and empty cis_benchmarks value
       if $?.exitstatus.eql?(0)
-
           # redhat v2.1.1 = 6.1.10
           ww_files=Facter::Core::Execution.exec("#{fact_temp_dir}/cis_scripts/cis_ww_files.sh")
           # redhat v1.0.0 = , v2.1.1 = 1.1.21
@@ -185,9 +181,9 @@ Facter.add('cis_benchmarks') do
               if forward
                   cis_benchmarks['forward'] = forward
               end
-	  else
+      else
          Facter.warn('Scripts Directory must exist before executing any of the bash scripts')
-	  end
-        cis_benchmarks
+      end
+      cis_benchmarks
 	end
 end

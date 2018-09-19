@@ -23,13 +23,13 @@ describe 'cis_benchmarks' do
           :os => {
             :name    => 'Solaris',
             :release => {
-              :major => '11',
+              :major => '11'
             }
           }
         }
       end
 
-      it {  is_expected.to  compile.and_raise_error(/cis_benchmarks is not supported on Solaris/) }
+      it { is_expected.to compile.and_raise_error(/cis_benchmarks is not supported on Solaris/) }
     end
   end
 end

@@ -30,7 +30,6 @@ RSpec.configure do |c|
 
       scp_to(host,'./data','/tmp/data' )
       scp_to(host,'hiera.yaml','/etc/puppetlabs/puppet')
-
    end
   end
 end
