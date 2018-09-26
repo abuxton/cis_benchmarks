@@ -1,5 +1,6 @@
 # CIS Benchmarks
 require 'facter'
+require 'json'
 
 Facter.add('cis_benchmarks') do
   confine :osfamily => 'RedHat'
@@ -172,6 +173,6 @@ Facter.add('cis_benchmarks') do
       cis_benchmarks['forward'] = forward
     end
 
-    cis_benchmarks
+    cis_benchmarks.merge(cis_benchmarks) { |key, value| value.force_encoding('ISO-8859-1').encode('UTF-8') }
   end
 end
