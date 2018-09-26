@@ -69,7 +69,7 @@ Facter.add('cis_benchmarks') do
     # redhat v2.1.1 = 6.2.14
     user_rhosts=Facter::Core::Execution.exec('/tmp/cis_scripts/cis_find_user_dot_rhosts.sh')
 
-    if ww_dirs
+    if ww_files
       cis_benchmarks['ww_files'] = ww_files
     end
     if ww_dirs
@@ -94,7 +94,7 @@ Facter.add('cis_benchmarks') do
       cis_benchmarks['pw_hash'] = pw_hash
     end
     if system_acct
-      cis_benchmarks['system_acct'] = ww_dirs
+      cis_benchmarks['system_acct'] = system_acct
     end
     if inactive_acct
       cis_benchmarks['inactive_acct'] = inactive_acct
