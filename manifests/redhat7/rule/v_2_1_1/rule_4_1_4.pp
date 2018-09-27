@@ -8,6 +8,7 @@
 # 4.1.11 Ensure unsuccessful unauthorized file access attempts are collected (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_4 {
   include ::cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1
+
   auditd::rule { '(4.1.4) - Ensure events that modify date and time information are collected (Scored), 64bit':
     content => '-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change',
     order   => 1,
