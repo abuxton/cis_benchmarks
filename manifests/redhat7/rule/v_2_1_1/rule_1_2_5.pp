@@ -9,7 +9,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_2_5{
       enable => false,
     }
   } else {
-      notice ('(1.2.5) - This operating system is not RedHat, skipping rule..')
+      notice ( '(1.2.5) - This operating system is not RedHat, skipping rule..')
   }
 
 

@@ -4,6 +4,6 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_8 {
 
   if $updates == 'yum updates are available'
   {
-    notice ('(1.8) - Yum updates are available for this host')
+    notify { '(1.8) - Yum updates are available for this host': }
   }
 } #EOF

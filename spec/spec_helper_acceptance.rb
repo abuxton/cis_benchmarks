@@ -21,6 +21,7 @@ RSpec.configure do |c|
     hosts.each do |host|
       proj_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
       puppet_module_install_on(master,:source => proj_root, :module_name => 'cis_benchmarks', :ignore_list => ['metadata.json','data','hiera.yaml','examples','spec','log','junit','tmp','coverage'])
+      on host, "yum update -y"
       on host, puppet('module', 'install', 'puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'puppetlabs-concat'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'fiddyspence-sysctl'), { :acceptable_exit_codes => [0,1] }

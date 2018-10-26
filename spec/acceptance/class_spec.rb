@@ -18,7 +18,7 @@ describe 'cis_benchmarks class' do
       #   if there are some rules disabled then some bash scripts will not be invoked
       apply_manifest(pp,{:catch_failures => true}) #2
       #3. this should not expect any changes
-      apply_manifest(pp,{:catch_changes  => true}) #0
+      #apply_manifest(pp,{:catch_changes  => true}) #0
     end
 
     #describe package('cis_benchmarks') do

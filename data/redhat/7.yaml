@@ -28,7 +28,7 @@ cis_benchmarks::v_2_1_1::exec_controls:
   'rule_1_4_2': true
   'rule_1_4_3': false #Not Scored - Boot Setting Authentication
   'rule_1_5_1': true
-  'rule_1_5_2': true  #Not Scored but can impact 32-bit systems.
+  'rule_1_5_2': false  #Not Scored but can impact 32-bit systems.
   'rule_1_5_3': true
   'rule_1_5_4': true
   'rule_1_6_1': false #Scored - Disabled for the sake of Vagrant and Automation
