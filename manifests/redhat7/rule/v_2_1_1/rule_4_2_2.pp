@@ -3,9 +3,9 @@
 # 4.2.4 Ensure permissions on all logfiles are configured (Scored)
 
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_2_2(
-  Hash $cis_syslog_ng_entries= lookup("cis_benchmarks::${::cis_benchmarks::cis_version}::cis_syslog_ng_entries",Hash,'first',$cis_benchmarks::params::cis_syslog_ng_entries),
-  String $cis_syslog_ng_server = lookup("cis_benchmarks::${::cis_benchmarks::cis_version}::cis_syslog_ng_server", String, 'first', $cis_benchmarks::params::cis_syslog_ng_server),
-  ) inherits ::cis_benchmarks::params {
+  Hash $cis_syslog_ng_entries  = lookup("${cis_benchmarks::cis_version_base}::cis_syslog_ng_entries"),
+  String $cis_syslog_ng_server = lookup("${cis_benchmarks::cis_version_base}::cis_syslog_ng_server"),
+) {
   $file='/etc/syslog-ng/syslog-ng.conf'
   package { '(4.2.2) - Ensure syslog-ng Package is installed':
     ensure => installed,

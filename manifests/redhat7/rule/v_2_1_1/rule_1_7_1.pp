@@ -6,8 +6,8 @@
 # 1.7.1.5 Ensure permissions on /etc/issue are configured (Scored)
 # 1.7.1.6 Ensure permissions on /etc/issue.net are configured (Not Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_7_1 (
-  $banners = lookup("cis_benchmarks::${cis_benchmarks::cis_version}::banners", Array, 'first',$cis_benchmarks::params::banners)
-) inherits cis_benchmarks::params {
+  Array $banners = lookup("${cis_benchmarks::cis_version_base}::banners"),
+) {
   #includes Rules:
   # 8.1 - Set Warning Banner for Standard Login Services (Scored)
   # 8.2 - Remove OS Information from Login Warning Banners (Scored)
