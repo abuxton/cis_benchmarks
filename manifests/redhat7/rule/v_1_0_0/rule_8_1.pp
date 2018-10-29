@@ -2,9 +2,7 @@
 # wrong tpe of param for hash usage
 # benchmark_8_1_banner defaults to false as banners are managed in other modules
 class cis_benchmarks::redhat7::rule::v_1_0_0::rule_8_1  (
-
-  $banners = lookup(cis_benchmarks::banners, Array, 'first',$cis_benchmarks::params::banners)
-
+  Array $banners = lookup("${cis_benchmarks::cis_version_base}::banners"),
 ) {
   #includes Rules:
   # 8.1 - Set Warning Banner for Standard Login Services (Scored)

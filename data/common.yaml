@@ -1,0 +1,7 @@
+---
+# This will be overriden by os-specific values for supported platforms
+cis_benchmarks::benchmark: false
+#
+#  Remove this to allow different script dirs for different cis versions
+cis_benchmarks::cis_scripts_dir: '/tmp/cis_scripts'
+

@@ -1,9 +1,21 @@
 ---
+### NOTE: Parts you should override in the global or environment data
 
-cis_benchmarks::cis_version: 'v_2_1_1'
+# Rule 1.4.1
+# The default password with the hash below is abcd1234
+# You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
+#    /usr/bin/grub2-mkpasswd-pbkdf2 command is part of the grub2-tools RPM package on RHEL 7
+cis_benchmarks::v_2_1_1::grubpwd: 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
+
+# Rule 5.1.1
+# remotelogserver should be modified below
+cis_benchmarks::v_2_1_1::remotelog_server: 'mylogserver.my'
+cis_benchmarks::benchmark: true
+cis_benchmarks::osrelease_path: 'redhat7'
+
 # Setup execute control hash
 # If you do not want a rule to be enforced, simply turn them to 'false' here
-cis_benchmarks::v_2_1_1::exec_controls:
+cis_benchmarks::exec_controls:
   'rule_1_1_1_prereq': true #applied by cis_profile with override if needed
   'rule_1_1_1_1': true
   'rule_1_1_1_2': true
@@ -118,7 +130,7 @@ cis_benchmarks::v_2_1_1::exec_controls:
   'rule_6_2_18': true
   'rule_6_2_19': true
 
-# Pre-req.
+### Parts you generally don't need to change
 cis_benchmarks::v_2_1_1::cis_scripts_dir: '/tmp/cis_scripts'
 cis_benchmarks::v_2_1_1::cis_scripts:
   - 'cis_ww_files.sh'
@@ -148,29 +160,25 @@ cis_benchmarks::v_2_1_1::cis_scripts:
   - 'cis_verify_root_path.sh'
   - 'cis_validate_user_home_perm.sh'
   - 'cis_user_dot_files_verified.sh'
-# Rule 1.4.1
+
+# Rule 1.1.8
+# array of removable media to set nodev
+cis_benchmarks::v_2_1_1::cis_removable_media: []
+
+# Rule 1.3.2
 # hour to set cron to run AIDE
 cis_benchmarks::v_2_1_1::cis_aide_hour: '5'
 
-# Rule 1.4.1
-# The default password with the hash below is abcd1234
-# You probably should re-generate and edit this hash using /usr/bin/grub2-mkpasswd-pbkdf2 command
-# NOTE: /usr/bin/grub2-mkpasswd-pbkdf2 command is part of the grub2-tools RPM package on RHEL 7
-cis_benchmarks::v_2_1_1::grubpwd: 'password_pbkdf2 root grub.pbkdf2.sha512.10000.9218D397421145AC7721CB920B48CF0B1F435052D4CAA3AD838DB8C6E89ADAB8E5A4CA493608A6307D69877163668690158CAF8421F6411E0F720DC711C111C9.605342B230DA20A2761831CA8C2EA2E645F183CF4EA8A7E65FFCA686E53955380F26E948DA66F063FB00051B8ACDECB1D38F00E4595CB915FF12049F78FB1E3A'
 # Rule 1.7.1
 cis_benchmarks::v_2_1_1::banners:
   - 'motd'
   - 'issue'
   - 'issue.net'
+
 # 1.7.2 GDM
 cis_benchmarks::v_2_1_1::manage_gdm: false
 cis_benchmarks::v_2_1_1::gdm_banner_message_text: ''
 
-
-cis_benchmarks::v_2_1_1::removeservice:
-
-
-  'tcpmux-server': '(2.1.18) - Disable tcpmux-server'
 # 2.1 inetd services to disbale
 cis_benchmarks::v_2_1_1::cis_inetd_services:
   'chargen-dgram': '(2.1.1) - Disable chargen-dgram'
@@ -185,39 +193,28 @@ cis_benchmarks::v_2_1_1::cis_inetd_services:
   'time-stream': '(2.1.5) - Disable time-stream'
   'tftp-server': '(2.1.6) - disable tftp-server'
   'xinetd': '(2.1.7) - disable xinetd'
+
 # 2.2.1
-'cis_benchmarks::v_2_1_1::time_service': 'chrony'
-'cis_benchmarks::v_2_1_1::time_server': '169.254.169.123 prefer iburst'
-# Rule 2.3.1
+cis_benchmarks::v_2_1_1::time_service: 'chrony'
+cis_benchmarks::v_2_1_1::time_server: '169.254.169.123 prefer iburst'
+
+# 2.3.1
 cis_benchmarks::v_2_1_1::cis_remove_package:
   'ypbind': '(2.3.1) - Ensure NIS Client is not installed (Scored)'
   'rsh': '(2.3.2) - Ensure rsh client is not installed (Scored)'
   'talk': '(2.3.3) - Ensure talk client is not installed (Scored)'
   'telnet': '(2.3.4) - Ensure telnet client is not installed (Scored)'
   'openldap-clients': '(2.3.5) - Ensure LDAP client is not installed (Scored)'
-# 3.8 - Disable NFS and RPC (Not Scored) #array
-cis_benchmarks::v_2_1_1::nfs_services:
-  - 'nfslock'
-  - 'rpcgssd'
-  - 'rpcbind'
-  - 'rpcidmapd'
-  - 'rpcsvcgssd'
 
 # 3.7 Ensure wireless interfaces are disabled (Not Scored) #array
-cis_benchmarks::v_2_1_1::cis_wireless_links:
+cis_benchmarks::v_2_1_1::cis_wireless_links: []
 
-#4.1.12 #array
+# 4.1.12 #array
 cis_benchmarks::v_2_1_1::cis_audit_partitions:
   - '/'
-#4.2.2
-cis_benchmarks::v_2_1_1::cis_syslog_ng_server: ''
-cis_benchmarks::v_2_1_1::cis_syslog_ng_entries:
-  'options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600); threaded(yes); };': 'path/to/file'
 
-# Rule 5.1.1
-# NOTE: remotelogserver should be modified below
-cis_benchmarks::v_2_1_1::remotelogserver: 'mylogserver.my'
-cis_benchmarks::v_2_1_1::rsyslogcontent:
+# 4.2.1
+cis_benchmarks::v_2_1_1::rsyslog_content:
   '*.info,mail.none,authpriv.none,cron.none,auth,user.*': '/var/log/messages'
   'authpriv.*': '/var/log/secure'
   'mail.*': '-/var/log/maillog'
@@ -228,15 +225,22 @@ cis_benchmarks::v_2_1_1::rsyslogcontent:
   'daemon.*': '/var/log/daemon.log'
   'syslog.*': '/var/log/syslog'
   'lpr,news,uucp,local0,local1,local2,local3,local4,local5,local6.*': '/var/log/unused.log'
-#5.2 ssh config
-cis_benchmarks::v_2_1_1::cis_sshd_settings:
-  '(5.2.2) - Ensure SSH Protocol is set to 2 (Scored)': 'Protocol 2'
+
+# 4.2.2
+cis_benchmarks::v_2_1_1::cis_syslog_ng_server: ''
+cis_benchmarks::v_2_1_1::cis_syslog_ng_entries:
+  'options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600); threaded(yes); };': 'path/to/file'
+
+# 5.2 ssh config
+cis_benchmarks::v_2_1_1::cis_manage_ssh: true
+cis_benchmarks::v_2_1_1::cis_ssh_settings:
+  '5.2.2 Ensure SSH Protocol is set to 2 (Scored)': 'Protocol 2'
   '5.2.3 Ensure SSH LogLevel is set to INFO (Scored)': 'LogLevel INFO'
   '5.2.4 Ensure SSH X11 forwarding is disabled (Scored)': 'X11Forwarding no'
   '5.2.5 Ensure SSH MaxAuthTries is set to 4 or less (Scored)': 'MaxAuthTries 4'
   '5.2.6 Ensure SSH IgnoreRhosts is enabled (Scored)': 'IgnoreRhosts yes'
   '5.2.7 Ensure SSH HostbasedAuthentication is disabled (Scored)': 'HostbasedAuthentication no'
-  '5.2.8 Ensure SSH root login is disabled (Scored)': 'PermitRootLogin yes'
+  '5.2.8 Ensure SSH root login is disabled (Scored)': 'PermitRootLogin no'
   '5.2.9 Ensure SSH PermitEmptyPasswords is disabled (Scored)': 'PermitEmptyPasswords no'
   '5.2.10 Ensure SSH PermitUserEnvironment is disabled (Scored)': 'PermitUserEnvironment no'
   '5.2.11 Ensure only approved ciphers are used (Scored)': 'Ciphers aes256-ctr,aes192-ctr,aes128-ctr'
@@ -254,22 +258,43 @@ cis_benchmarks::v_2_1_1::logs:
   - '/var/log/spooler'
   - '/var/log/boot.log'
   - '/var/log/cron'
+
 # 5.5 Ensure root login is restricted to system console (Not Scored)
-'cis_consoles':
-  - ''
-# Rule 6.1.1
+cis_benchmarks::v_2_1_1::cis_consoles: []
+
+# Rule 5.1
 cis_benchmarks::v_2_1_1::cron_files:
-  '/etc/anacrontab': 'Rule 6.1.3'
-  '/etc/at.allow':   'Rule 6.1.10'
-  '/etc/cron.allow': 'Rule 6.1.11'
+  '/etc/crontab':    'Rule 5.1.2'
+  '/etc/at.allow':   'Rule 5.1.8'
+  '/etc/cron.allow': 'Rule 5.1.8'
+
 cis_benchmarks::v_2_1_1::cron_dirs:
-  '/etc/cron.hourly':  'Rule 6.1.5'
-  '/etc/cron.daily':   'Rule 6.1.6'
-  '/etc/cron.weekly':  'Rule 6.1.7'
-  '/etc/cron.monthly': 'Rule 6.1.8'
-  '/etc/cron.d':       'Rule 6.1.9'
+  '/etc/cron.hourly':  'Rule 5.1.3'
+  '/etc/cron.daily':   'Rule 5.1.4'
+  '/etc/cron.weekly':  'Rule 5.1.5'
+  '/etc/cron.monthly': 'Rule 5.1.6'
+  '/etc/cron.d':       'Rule 5.1.7'
 
+# 6.1.1
+cis_benchmarks::v_2_1_1::integrity_schedule_range: '1-12'
+cis_benchmarks::v_2_1_1::integrity_schedule_period: 'daily'
+cis_benchmarks::v_2_1_1::integrity_schedule_repeat: '1'
 
-# Rule: added permission settings
-cis_benchmarks::v_2_1_1::specialperms:
-  '/root': '0700'
+# Lookup/merge options
+lookup_options:
+  cis_benchmarks::v_2_1_1::logs:
+    value_type: 'Array'
+    merge:
+      strategy: 'unique'
+  cis_benchmarks::v_2_1_1::cis_remove_package:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_2_1_1::cron_files:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'
+  cis_benchmarks::v_2_1_1::cron_dirs:
+    value_type: 'Hash'
+    merge:
+      strategy: 'deep'

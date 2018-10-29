@@ -3,8 +3,8 @@
 # 1.1.20 Ensure noexec option set on removable media partitions (Not Scored)
 
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_1_18 (
-  Array $cis_removable_media = lookup("cis_benchmarks::${::cis_benchmarks::cis_version}::cis_removable_media",Array,'first',$cis_benchmarks::params::cis_removable_media)
-  ) inherits cis_benchmarks::params{
+  Array $cis_removable_media = lookup("${cis_benchmarks::cis_version_base}::cis_removable_media"),
+) {
 
     $cis_removable_media.each |$media| {
       mount { "(1.1.8) ${media} is mounted nodev":

@@ -1,11 +1,7 @@
 # replaces cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_1_1
-#wrong tpe of param for hash usage
-# rsyslogcontent still looks at cis_benchmarks key as no issue with data
 class cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_1_1 (
-
-  $remotelogserver = lookup('cis_benchmarks::remotelogserver', String, 'first', $cis_benchmarks::params::remotelogserver),
-  $rsyslogcontent = lookup('cis_benchmarks::rsyslogcontent', Hash, 'first', $cis_benchmarks::params::rsyslogcontent),
-
+  String $remotelogserver = lookup("${cis_benchmarks::cis_version_base}::remotelogserver"),
+  Hash $rsyslogcontent    = lookup("${cis_benchmarks::cis_version_base}::rsyslogcontent"),
 ) {
 
   $file = '/etc/rsyslog.conf'

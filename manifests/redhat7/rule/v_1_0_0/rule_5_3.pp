@@ -1,7 +1,7 @@
 # replaces cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_3
 #wrong tpe of param for hash usage
 class cis_benchmarks::redhat7::rule::v_1_0_0::rule_5_3 (
-  $logs = lookup('cis_benchmarks::logs', Array, 'first',$cis_benchmarks::params::logs ),
+  Array $logs = lookup("${cis_benchmarks::cis_version_base}::logs"),
 ) {
   # includes Rules:
   # 5.3 - Configure logrotate (Not Scored)

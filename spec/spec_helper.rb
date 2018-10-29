@@ -3,6 +3,7 @@ require 'rspec-puppet-facts'
 
 include RspecPuppetFacts
 
+#require 'hiera'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -15,6 +16,16 @@ SimpleCov.start do
   ])
 end
 
+#Hiera.logger = 'console'
+
 RSpec.configure do |c|
-  c.hiera_config = File.expand_path(File.join(__FILE__, '../fixtures/hiera.yaml'))
+  #c.before(:each) do
+  #  Puppet::Util::Log.level = :debug
+  #  Puppet::Util::Log.newdestination(:console)
+  #end
+  c.hiera_config = 'spec/fixtures/hiera.yaml'
+
+  c.after(:suite) do
+    RSpec::Puppet::Coverage.report!
+  end
 end
