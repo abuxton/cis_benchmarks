@@ -9,7 +9,7 @@ describe 'cis_benchmarks class' do
       pp = <<-EOS
       class { 'cis_benchmarks':
       }
-      EOS
+EOS
 
       # Run it twice and test for idempotency
       #1.The first execution does create the script directory and drops the files
@@ -19,18 +19,6 @@ describe 'cis_benchmarks class' do
       #   if there are some rules disabled then some bash scripts will not be invoked
       apply_manifest(pp,{ :catch_failures => true}) #2
       #3. this should not expect any changes
-      #apply_manifest(pp,{:catch_changes  => true}) #0
     end
-
-    #describe package('cis_benchmarks') do
-    #  it { is_expected.to be_installed }
-    #end
-
-    #describe service('cis_benchmarks') do
-    #  it { is_expected.to be_enabled }
-    #  it { is_expected.to be_running }
-    #end
   end
 end
-
-#end

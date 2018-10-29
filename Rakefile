@@ -20,8 +20,8 @@ task :'release:patch' do
   Rake::Task['build'].invoke
   puts 'do git push origin v`rake module:version`'
   puts 'do git push'
-
 end
+
 desc 'Validate manifests, templates, and ruby files'
 task :validate do
   Dir['manifests/**/*.pp'].each do |manifest|
@@ -36,8 +36,7 @@ task :validate do
 end
 
 desc 'Run metadata_lint, lint, validate, and spec tests.'
-task :test do
-  [:metadata_lint, :lint, :validate, :spec].each do |test|
+task :test do [:metadata_lint, :lint, :validate, :spec].each do |test|
     Rake::Task[test].invoke
   end
 end

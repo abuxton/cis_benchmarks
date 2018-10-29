@@ -7,7 +7,7 @@ AllCops:
     # Ignore code from test fixtures
     - 'spec/fixtures/**/*'
 
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Enabled: true
 
 Lint/ElseLayout:
@@ -40,7 +40,7 @@ Lint/AmbiguousOperator:
 Lint/AssignmentInCondition:
   Enabled: true
 
-Style/SpaceBeforeComment:
+Layout/SpaceBeforeComment:
   Enabled: true
 
 # DISABLED - not useful
@@ -61,6 +61,10 @@ Metrics/MethodLength:
   Enabled: false
 
 # DISABLED - not useful
+Metrics/BlockLength:
+  Enabled: false
+
+# DISABLED - not useful
 Style/WhileUntilModifier:
   Enabled: false
 
@@ -69,19 +73,19 @@ Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
 # DISABLED
-Lint/Eval:
+Layout/Eval:
   Enabled: false
 
 # DISABLED
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   Enabled: false
 
 # DISABLED
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   Enabled: false
 
 # DISABLED
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: false
 
 # DISABLED
