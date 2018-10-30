@@ -6,10 +6,10 @@ describe 'cis_benchmarks class' do
   context 'running cis benchmarks 2.1.1 on CentOS machine' do
     # Using puppet_apply as a helper
     it 'should work idempotently with no errors' do
-      pp = <<-EOS
+      pp = <<-HEREDOC
       class { 'cis_benchmarks':
       }
-EOS
+      HEREDOC
 
       # Run it twice and test for idempotency
       #1.The first execution does create the script directory and drops the files

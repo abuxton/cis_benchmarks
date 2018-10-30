@@ -64,6 +64,13 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Enabled: false
 
+Style/SymbolArray:
+  Enabled: false
+
+# DISABLED - not useful
+Style/MixinUsage:
+  Enabled: false
+
 # DISABLED - not useful
 Style/WhileUntilModifier:
   Enabled: false
