@@ -47,7 +47,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_13 {
     order   => 49,
   }
   auditd::rule{ '(4.1.17) - Ensure kernel module loading and unloading is collected (Scored), modules':
-    content => '-a always,exit arch=b64 -S init_module -S delete_module -k modules',
+    content => '-a always,exit -F arch=b64 -S init_module -S delete_module -k modules',
     order   => 50,
   }
   auditd::rule{ '(4.1.18) - Ensure the audit configuration is immutable (Scored)':

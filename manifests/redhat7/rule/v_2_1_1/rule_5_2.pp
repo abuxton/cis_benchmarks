@@ -19,23 +19,26 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_5_2 (
   Boolean $manage_ssh    = lookup("${cis_benchmarks::cis_version_base}::cis_manage_ssh"),
   Hash $cis_ssh_settings = lookup("${cis_benchmarks::cis_version_base}::cis_ssh_settings"),
 ) {
+
   if $manage_ssh{
+
     $file = '/etc/ssh/sshd_config'
+
     service {'(5.2) - Ensure SSH Server Configuration':
       ensure => running,
       name   => 'sshd',
       enable => true,
-    }
+  }
 
   $cis_ssh_settings.each |$rule, $setting| {
     $matching_setting    =  split($setting, '[\s*]')[0]
     if $matching_setting =~ /^(?![#])/ {
       file_line { $rule:
-        ensure   => present,
-        path     => $file,
-        line     => $setting,
-        match    => "^${matching_setting}",
-        notify   => Service['(5.2) - Ensure SSH Server Configuration'],
+        ensure => present,
+        path   => $file,
+        line   => $setting,
+        match  => "^${matching_setting}",
+        notify => Service['(5.2) - Ensure SSH Server Configuration'],
       }
     }
   }

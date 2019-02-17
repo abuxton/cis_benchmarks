@@ -11,8 +11,8 @@ class cis_benchmarks::redhat7::rule::v_1_0_0::rule_1_2_6 (
     repeat => $schedule_repeat,
   }
   exec { "${cis_benchmarks::scripts_dir}/cis_pkg_integrity.sh":
-    path      =>  '/usr/bin',
-    schedule  =>  'exec cis_pkg_integrity.sh',
+    path     =>  '/usr/bin',
+    schedule =>  'exec cis_pkg_integrity.sh',
   }
   $pkg = $::cis_benchmarks['pkg_integrity']
 

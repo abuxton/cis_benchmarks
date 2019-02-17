@@ -7,7 +7,7 @@ AllCops:
     # Ignore code from test fixtures
     - 'spec/fixtures/**/*'
 
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Enabled: true
 
 Lint/ElseLayout:
@@ -25,9 +25,6 @@ Lint/EnsureReturn:
 Lint/HandleExceptions:
   Enabled: true
 
-Lint/LiteralInCondition:
-  Enabled: true
-
 Lint/ShadowingOuterLocalVariable:
   Enabled: true
 
@@ -43,7 +40,7 @@ Lint/AmbiguousOperator:
 Lint/AssignmentInCondition:
   Enabled: true
 
-Style/SpaceBeforeComment:
+Layout/SpaceBeforeComment:
   Enabled: true
 
 # DISABLED - not useful
@@ -64,6 +61,17 @@ Metrics/MethodLength:
   Enabled: false
 
 # DISABLED - not useful
+Metrics/BlockLength:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+# DISABLED - not useful
+Style/MixinUsage:
+  Enabled: false
+
+# DISABLED - not useful
 Style/WhileUntilModifier:
   Enabled: false
 
@@ -72,19 +80,19 @@ Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
 # DISABLED
-Lint/Eval:
+Layout/Eval:
   Enabled: false
 
 # DISABLED
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   Enabled: false
 
 # DISABLED
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   Enabled: false
 
 # DISABLED
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: false
 
 # DISABLED
@@ -199,9 +207,6 @@ Style/TrailingBlankLines:
 Style/SpaceInsideBlockBraces:
   Enabled: false
 
-Style/SpaceInsideBrackets:
-  Enabled: false
-
 Style/SpaceInsideHashLiteralBraces:
   Enabled: false
 
@@ -211,7 +216,7 @@ Style/SpaceInsideParens:
 Style/LeadingCommentSpace:
   Enabled: false
 
-Style/SingleSpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Enabled: false
 
 Style/SpaceAfterColon:
@@ -220,7 +225,7 @@ Style/SpaceAfterColon:
 Style/SpaceAfterComma:
   Enabled: false
 
-Style/SpaceAfterControlKeyword:
+Layout/SpaceAroundKeyword:
   Enabled: false
 
 Style/SpaceAfterMethodName:
@@ -268,7 +273,7 @@ Style/Documentation:
 Style/DefWithParentheses:
   Enabled: false
 
-Style/DeprecatedHashMethods:
+Style/PreferredHashMethods:
   Enabled: false
 
 Style/DotPosition:
@@ -308,7 +313,7 @@ Style/EmptyLiteral:
 Metrics/LineLength:
   Enabled: false
 
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 
 Style/MethodDefParentheses:
@@ -323,7 +328,7 @@ Style/TrailingWhitespace:
 Style/StringLiterals:
   Enabled: false
 
-Style/TrailingComma:
+Style/TrailingCommaInArguments:
   Enabled: false
 
 Style/GlobalVars:
@@ -419,7 +424,7 @@ Style/NumericLiterals:
 Style/OneLineConditional:
   Enabled: false
 
-Style/OpMethod:
+Naming/BinaryOperatorParameterName:
   Enabled: false
 
 Style/ParenthesesAroundCondition:

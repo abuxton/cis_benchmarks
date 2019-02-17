@@ -13,14 +13,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_2_2 {
     path   => '/etc/yum.conf',
     line   => 'gpgcheck=1',
   }
-  exec{ '(1.2.2) Ensure gpgcheck is globally activated (Scored): Failed':
+  exec{ '(1.2.2) Ensure gpgcheck is globally activated (Scored):':
     command => 'sed -i /^gpgcheck*/d /etc/yum.repos.d/*.repo',
     path    => '/sbin:/bin',
     onlyif  => 'test  $(grep  ^gpgcheck /etc/yum.repos.d/* | wc -l) -gt 0',
   }
-
-
-
-
-
-}#EOF
+}
+#EOF

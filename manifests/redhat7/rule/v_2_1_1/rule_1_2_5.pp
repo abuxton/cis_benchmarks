@@ -1,6 +1,7 @@
 # 1.2.5 Disable the rhnsd Daemon (Not Scored)
 # APPLIES TO REDHAT only
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_2_5{
+
   if $::operatingsystem == 'RedHat' {
     service { '(1.2.5) rhnsd service is disabled':
       ensure => stopped,
@@ -8,7 +9,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_1_2_5{
       enable => false,
     }
   } else {
-      notify { '(1.2.5) - This operating system is not RedHat, skipping rule..': }
+      notice ( '(1.2.5) - This operating system is not RedHat, skipping rule..')
   }
 
 

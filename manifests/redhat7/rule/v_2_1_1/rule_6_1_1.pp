@@ -20,7 +20,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_1 (
   }
   $pkg = $::cis_benchmarks['pkg_integrity']
 
-  if $pkg != ''
+  if $pkg != '' and pkg != undef
   {
     notify { '6.1.1 Audit system file permissions (Not Scored), Installed packages did not pass integrity check': }
   }

@@ -1,6 +1,6 @@
 class cis_benchmarks::redhat7::rule::v_1_0_0::rule_6_1_1 (
-  Hash $files = lookup({'name' => "${cis_benchmarks::cis_version_base}::cron_files", 'default_value' => {}),
-  Hash $dirs  = lookup({'name' => "${cis_benchmarks::cis_version_base}::cron_dirs", 'default_value' => {}),
+  Hash $files = lookup({'name' => "${cis_benchmarks::cis_version_base}::cron_files", 'default_value' => {}}),
+  Hash $dirs  = lookup({'name' => "${cis_benchmarks::cis_version_base}::cron_dirs", 'default_value' => {}})
 ) {
   # includes Rules:
   # 6.1.1 - Enable anacron Daemon (Scored)

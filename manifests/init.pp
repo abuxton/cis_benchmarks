@@ -50,7 +50,9 @@ class cis_benchmarks(
   # Iterate over each rule in the hash
   $exec_controls.each |$rule, $ishouldexecute| {
     if $ishouldexecute {
+      notice("::cis_benchmarks::${osrelease_path}::rule::${version}::${rule}")
       include "::cis_benchmarks::${osrelease_path}::rule::${version}::${rule}"
     }
   }
 }#EOF
+
